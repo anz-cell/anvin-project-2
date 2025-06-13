@@ -197,11 +197,16 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   border: 1px solid #eee;
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .service-card:hover {
   transform: translateY(-10px);
   border-color: #ff0000;
+  text-decoration: none;
+  color: inherit;
 }
 
 .service-card i {
@@ -213,6 +218,10 @@ body {
 .service-card h3 {
   color: #000000;
   margin-bottom: 1rem;
+}
+
+.service-card p {
+  color: #666;
 }
 
 /* Why Choose Us Section */
