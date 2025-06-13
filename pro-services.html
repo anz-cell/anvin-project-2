@@ -19,8 +19,8 @@
   <style>
     .service-hero {
       height: 50vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('https://images.unsplash.com/photo-1515168833906-d2a3b82b302b?auto=format&fit=crop&w=1500&q=80');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -107,33 +107,47 @@
 </head>
 
 <body>
-  <!-- Header Section -->
+  <!-- Header -->
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <img src="logo.jpg" alt="Logo" class="logo-img" onload="console.log('Logo loaded successfully')"
-          onerror="console.log('Logo failed to load'); this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <h1 style="display: none; color: #ff0000; font-size: 1.8rem; font-weight: 700;">Logo</h1>
-      </div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <div class="dropdown">
-          <a href="index.html#services" class="dropdown-trigger">Services <i class="fas fa-chevron-down"></i></a>
-          <div class="dropdown-content">
-            <a href="mainland.html">UAE Mainland Business Setup</a>
-            <a href="freezone.html">Free Zone Business Setup</a>
-            <a href="pro-services.html">PRO Services</a>
-            <a href="offshore.html">Offshore Business License</a>
-          </div>
-        </div>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="contact-info">
-        <a href="tel:+971552621001" class="phone">
-          <i class="fas fa-phone"></i> +971 55 262 1001
+        <a href="index.html">
+          <img src="logo.jpg" alt="Logo" class="logo-img">
         </a>
       </div>
+      <div class="nav-container">
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="dropdown">
+            <a href="#services" class="dropdown-trigger">Services <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-content">
+              <a href="mainland.html">UAE Mainland Business Setup</a>
+              <a href="freezone.html">Free Zone Business Setup</a>
+              <a href="pro-services.html">PRO Services</a>
+              <a href="offshore.html">Offshore Business License</a>
+            </div>
+          </div>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-input">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="contact-info">
+            <a href="tel:+971552621001" class="phone">
+              <i class="fas fa-phone"></i> +971 55 262 1001
+            </a>
+          </div>
+          <a href="#contact" class="cta-button nav-cta">Get Started</a>
+        </div>
+      </div>
+      <button class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
   </header>
 
@@ -147,13 +161,13 @@
 
   <!-- Service Content -->
   <section class="service-content">
-    <div class="service-section" data-aos="slide-up">
+    <div class="service-section" data-aos="slide-up" data-aos-delay="100">
       <h2>About PRO Services</h2>
       <p>Our PRO services ensure smooth handling of all government-related documentation and procedures. We take care of
         your business's administrative tasks, allowing you to focus on growth and operations.</p>
     </div>
 
-    <div class="service-section" data-aos="slide-right">
+    <div class="service-section" data-aos="slide-right" data-aos-delay="100">
       <h2>Our PRO Services Include</h2>
       <ul class="benefits-list">
         <li>Document attestation and legalization</li>
@@ -167,7 +181,7 @@
       </ul>
     </div>
 
-    <div class="service-section" data-aos="fade-up">
+    <div class="service-section" data-aos="fade-up" data-aos-delay="100">
       <h2>Why Choose Our PRO Services</h2>
       <div class="process-steps">
         <div class="step-card" data-aos="zoom-in" data-aos-delay="100">
@@ -195,7 +209,7 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section" data-aos="flip-up">
+  <section class="cta-section" data-aos="flip-up" data-aos-delay="100">
     <h2>Need Professional PRO Services?</h2>
     <p>Contact us today for a free consultation</p>
     <a href="contact.html" class="cta-button">Get Started</a>
@@ -204,28 +218,60 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-section">
-        <h3>BBCFZE</h3>
-        <p>Your trusted partner for business setup in UAE</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <a href="index.html">Home</a>
-        <a href="index.html#services">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-section">
-        <h3>Connect With Us</h3>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
+      <div class="footer-section about">
+        <div class="footer-logo">
+          <img src="logo.jpg" alt="Logo" class="logo-img">
         </div>
+        <p>Your trusted partner for business setup in UAE. We provide comprehensive solutions for mainland and free zone company formation, PRO services, and business consulting.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-section services">
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="mainland.html">UAE Mainland Setup</a></li>
+          <li><a href="freezone.html">Free Zone Setup</a></li>
+          <li><a href="pro-services.html">PRO Services</a></li>
+          <li><a href="offshore.html">Offshore License</a></li>
+          <li><a href="#">Business Consulting</a></li>
+          <li><a href="#">Visa Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-section newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter for the latest updates and insights.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 BBCFZE. All rights reserved.</p>
+      <div class="footer-bottom-content">
+        <p>&copy; 2024 Company. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
     </div>
   </footer>
 

@@ -8,6 +8,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         behavior: 'smooth',
         block: 'start'
       });
+      // Close mobile menu if open
+      navContainer.classList.remove('active');
+      mobileMenuBtn.classList.remove('active');
     }
   });
 });
@@ -20,58 +23,83 @@ window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
 
   if (currentScroll <= 0) {
-    header.classList.remove('scroll-up');
+    header.classList.remove('scrolled');
     return;
   }
 
   if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-    // Scroll Down
+    // Scrolling down
     header.classList.remove('scroll-up');
     header.classList.add('scroll-down');
   } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-    // Scroll Up
+    // Scrolling up
     header.classList.remove('scroll-down');
     header.classList.add('scroll-up');
   }
+
+  if (currentScroll > 100) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+
   lastScroll = currentScroll;
 });
 
 // Form submission handling
 const contactForm = document.querySelector('.contact-form');
+const successMessage = document.querySelector('.success-message');
+
 if (contactForm) {
-  contactForm.addEventListener('submit', function (e) {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Get form data
-    const formData = new FormData(this);
-    const formObject = {};
-    formData.forEach((value, key) => {
-      formObject[key] = value;
+    // Basic form validation
+    const formData = new FormData(contactForm);
+    let isValid = true;
+    let firstInvalidInput = null;
+
+    contactForm.querySelectorAll('input, textarea, select').forEach(input => {
+      if (input.hasAttribute('required') && !input.value.trim()) {
+        isValid = false;
+        input.classList.add('invalid');
+        if (!firstInvalidInput) firstInvalidInput = input;
+      } else {
+        input.classList.remove('invalid');
+      }
     });
 
-    // Here you would typically send the data to your server
-    console.log('Form submitted:', formObject);
+    if (!isValid) {
+      firstInvalidInput.focus();
+      return;
+    }
 
-    // Show success message
-    const successMessage = document.createElement('div');
-    successMessage.className = 'success-message';
-    successMessage.textContent = 'Thank you for your message! We will get back to you soon.';
-    successMessage.style.cssText = `
-            background: #2ecc71;
-            color: white;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-top: 1rem;
-            text-align: center;
-        `;
+    // Show loading state
+    const submitButton = contactForm.querySelector('.submit-button');
+    const originalButtonText = submitButton.innerHTML;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitButton.disabled = true;
 
-    this.appendChild(successMessage);
-    this.reset();
+    try {
+      // Simulate form submission (replace with actual API call)
+      await new Promise(resolve => setTimeout(resolve, 1500));
 
-    // Remove success message after 5 seconds
-    setTimeout(() => {
-      successMessage.remove();
-    }, 5000);
+      // Show success message
+      successMessage.classList.add('active');
+      contactForm.reset();
+
+      // Hide success message after 3 seconds
+      setTimeout(() => {
+        successMessage.classList.remove('active');
+      }, 3000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('There was an error submitting the form. Please try again.');
+    } finally {
+      // Reset button state
+      submitButton.innerHTML = originalButtonText;
+      submitButton.disabled = false;
+    }
   });
 }
 
@@ -97,64 +125,72 @@ document.querySelectorAll('.service-card, .feature').forEach(element => {
 });
 
 // Mobile menu toggle
-const createMobileMenu = () => {
-  const navbar = document.querySelector('.navbar');
-  const navLinks = document.querySelector('.nav-links');
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navContainer = document.querySelector('.nav-container');
 
-  // Create mobile menu button
-  const mobileMenuBtn = document.createElement('button');
-  mobileMenuBtn.className = 'mobile-menu-btn';
-  mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-  mobileMenuBtn.style.cssText = `
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #ff0000;
-      cursor: pointer;
-      padding: 0.5rem;
-  `;
+mobileMenuBtn.addEventListener('click', () => {
+  navContainer.classList.toggle('active');
+  mobileMenuBtn.classList.toggle('active');
+});
 
-  // Add button to navbar
-  navbar.insertBefore(mobileMenuBtn, navLinks);
+// Newsletter Form
+const newsletterForm = document.querySelector('.newsletter-form');
 
-  // Handle dropdown in mobile view
-  const dropdown = document.querySelector('.dropdown');
-  if (dropdown) {
-    const dropdownTrigger = dropdown.querySelector('.dropdown-trigger');
-    dropdownTrigger.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dropdown.classList.toggle('active');
-      }
-    });
-  }
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const emailInput = newsletterForm.querySelector('input[type="email"]');
+    const submitButton = newsletterForm.querySelector('button');
 
-  // Toggle menu on click
-  mobileMenuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
-      ? '<i class="fas fa-times"></i>'
-      : '<i class="fas fa-bars"></i>';
+    if (!emailInput.value.trim()) {
+      emailInput.classList.add('invalid');
+      return;
+    }
+
+    // Show loading state
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    submitButton.disabled = true;
+
+    try {
+      // Simulate newsletter subscription (replace with actual API call)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      alert('Thank you for subscribing to our newsletter!');
+      newsletterForm.reset();
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      alert('There was an error subscribing to the newsletter. Please try again.');
+    } finally {
+      // Reset button state
+      submitButton.innerHTML = '<i class="fas fa-paper-plane"></i>';
+      submitButton.disabled = false;
+    }
+  });
+}
+
+// Search Functionality
+const searchInput = document.querySelector('.search-input');
+const searchBtn = document.querySelector('.search-btn');
+
+if (searchInput && searchBtn) {
+  searchBtn.addEventListener('click', () => {
+    const searchTerm = searchInput.value.trim();
+    if (searchTerm) {
+      // Implement search functionality
+      console.log('Searching for:', searchTerm);
+    }
   });
 
-  // Show/hide mobile menu button based on screen size
-  const handleResize = () => {
-    if (window.innerWidth <= 768) {
-      mobileMenuBtn.style.display = 'block';
-      navLinks.style.display = 'none';
-      if (dropdown) {
-        dropdown.classList.remove('active');
-      }
-    } else {
-      mobileMenuBtn.style.display = 'none';
-      navLinks.style.display = 'flex';
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      searchBtn.click();
     }
-  };
+  });
+}
 
-  window.addEventListener('resize', handleResize);
-  handleResize();
-};
-
-// Initialize mobile menu
-createMobileMenu();
+// Initialize AOS
+AOS.init({
+  duration: 800,
+  easing: 'ease-in-out',
+  once: true,
+  offset: 100
+});

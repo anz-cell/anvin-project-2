@@ -16,7 +16,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 
@@ -25,83 +25,162 @@
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <img src="logo.jpg" alt="Logo" class="logo-img" onload="console.log('Logo loaded successfully')"
-          onerror="console.log('Logo failed to load'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <a href="index.html">
+          <img src="logo.jpg" alt="Logo" class="logo-img" onload="console.log('Logo loaded successfully')"
+            onerror="console.log('Logo failed to load'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+        </a>
         <h1 style="display: none; color: #ff0000; font-size: 1.8rem; font-weight: 700;">Logo</h1>
       </div>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <div class="dropdown">
-          <a href="#services" class="dropdown-trigger">Services <i class="fas fa-chevron-down"></i></a>
-          <div class="dropdown-content">
-            <a href="mainland.html">UAE Mainland Business Setup</a>
-            <a href="freezone.html">Free Zone Business Setup</a>
-            <a href="pro-services.html">PRO Services</a>
-            <a href="offshore.html">Offshore Business License</a>
+      
+      <div class="nav-container">
+        <div class="nav-links">
+          <a href="#home" class="nav-link">Home</a>
+          <div class="dropdown">
+            <a href="#services" class="dropdown-trigger">Services <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-content">
+              <a href="mainland.html">UAE Mainland Business Setup</a>
+              <a href="freezone.html">Free Zone Business Setup</a>
+              <a href="pro-services.html">PRO Services</a>
+              <a href="offshore.html">Offshore Business License</a>
+            </div>
           </div>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
         </div>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+
+        <div class="nav-actions">
+          <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-input">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="contact-info">
+            <a href="tel:+971552621001" class="phone">
+              <i class="fas fa-phone"></i> +971 55 262 1001
+            </a>
+          </div>
+          <a href="#contact" class="cta-button nav-cta">Get Started</a>
+        </div>
       </div>
-      <div class="contact-info">
-        <a href="tel:+971552621001" class="phone">
-          <i class="fas fa-phone"></i> +971 55 262 1001
-        </a>
-      </div>
+
+      <button class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section id="home" class="hero" data-aos="fade-down">
+  <section id="home" class="hero" data-aos="fade-down" data-aos-duration="1200">
+    <div class="hero-background" style="background: url('https://images.unsplash.com/photo-1465101178521-c5249f4b7a09?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center;">
+      <div class="hero-overlay"></div>
+    </div>
     <div class="hero-content">
       <h1>Your Trusted Business Partner in UAE</h1>
       <p>Expert guidance for mainland and free zone company setup, PRO services, and business solutions</p>
-      <a href="#contact" class="cta-button">Get Started</a>
+      <a href="#contact" class="cta-button primary">Get Started</a>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <div class="arrow">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="services" data-aos="fade-up">
-    <h2>Our Services</h2>
+  <section id="services" class="services" data-aos="fade-up" data-aos-delay="100">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Our Services</h2>
+      <p>Comprehensive business solutions tailored to your needs</p>
+    </div>
     <div class="services-grid">
       <a href="mainland.html" class="service-card" data-aos="zoom-in" data-aos-delay="100">
-        <i class="fas fa-building"></i>
-        <h3>UAE Mainland Business Setup</h3>
-        <p>Complete mainland company formation services with expert guidance</p>
+        <div class="service-icon">
+          <i class="fas fa-building"></i>
+        </div>
+        <div class="service-content">
+          <h3>UAE Mainland Business Setup</h3>
+          <p>Complete mainland company formation services with expert guidance</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Business License</li>
+            <li><i class="fas fa-check"></i> Visa Processing</li>
+            <li><i class="fas fa-check"></i> Bank Account Setup</li>
+          </ul>
+          <span class="service-cta">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
       </a>
       <a href="freezone.html" class="service-card" data-aos="zoom-in" data-aos-delay="200">
-        <i class="fas fa-globe"></i>
-        <h3>Free Zone Business Setup</h3>
-        <p>Strategic free zone company formation tailored to your needs</p>
+        <div class="service-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <div class="service-content">
+          <h3>Free Zone Business Setup</h3>
+          <p>Strategic free zone company formation tailored to your needs</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Free Zone License</li>
+            <li><i class="fas fa-check"></i> Office Space</li>
+            <li><i class="fas fa-check"></i> Corporate Services</li>
+          </ul>
+          <span class="service-cta">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
       </a>
       <a href="pro-services.html" class="service-card" data-aos="zoom-in" data-aos-delay="300">
-        <i class="fas fa-file-alt"></i>
-        <h3>PRO Services</h3>
-        <p>Comprehensive PRO services and document attestation</p>
+        <div class="service-icon">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <div class="service-content">
+          <h3>PRO Services</h3>
+          <p>Comprehensive PRO services and document attestation</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Document Processing</li>
+            <li><i class="fas fa-check"></i> Visa Services</li>
+            <li><i class="fas fa-check"></i> Legal Translation</li>
+          </ul>
+          <span class="service-cta">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
       </a>
       <a href="offshore.html" class="service-card" data-aos="zoom-in" data-aos-delay="400">
-        <i class="fas fa-briefcase"></i>
-        <h3>Offshore Business License</h3>
-        <p>Offshore company formation with banking solutions</p>
+        <div class="service-icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="service-content">
+          <h3>Offshore Business License</h3>
+          <p>Offshore company formation with banking solutions</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Offshore License</li>
+            <li><i class="fas fa-check"></i> Banking Solutions</li>
+            <li><i class="fas fa-check"></i> Tax Planning</li>
+          </ul>
+          <span class="service-cta">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
       </a>
+    </div>
+    <div class="services-cta" data-aos="fade-up" data-aos-delay="500">
+      <p>Need a custom solution?</p>
+      <a href="#contact" class="cta-button primary">Contact Us</a>
     </div>
   </section>
 
   <!-- Why Choose Us -->
-  <section class="why-us" data-aos="fade-right">
+  <section class="why-us" data-aos="fade-right" data-aos-delay="100">
     <h2>Why Choose Us</h2>
     <div class="features-grid">
-      <div class="feature" data-aos="flip-left" data-aos-delay="100">
+      <div class="feature" data-aos="flip-left" data-aos-delay="200">
         <i class="fas fa-check-circle"></i>
         <h3>Expert Guidance</h3>
         <p>Professional team with years of experience</p>
       </div>
-      <div class="feature" data-aos="flip-left" data-aos-delay="200">
+      <div class="feature" data-aos="flip-left" data-aos-delay="300">
         <i class="fas fa-clock"></i>
         <h3>Quick Processing</h3>
         <p>Fast and efficient service delivery</p>
       </div>
-      <div class="feature" data-aos="flip-left" data-aos-delay="300">
+      <div class="feature" data-aos="flip-left" data-aos-delay="400">
         <i class="fas fa-handshake"></i>
         <h3>End-to-End Support</h3>
         <p>Complete assistance throughout the process</p>
@@ -110,10 +189,10 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact" data-aos="fade-up">
-    <h2>Contact Us</h2>
+  <section id="contact" class="contact" data-aos="fade-up" data-aos-delay="100">
     <div class="contact-container">
-      <div class="contact-info" data-aos="fade-right">
+      <h2 style="grid-column: 1 / -1; margin-bottom: 2rem;">Contact Us</h2>
+      <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
         <div class="info-item">
           <i class="fas fa-map-marker-alt"></i>
           <p>Ras Al Khaimah, United Arab Emirates</p>
@@ -127,7 +206,7 @@
           <p>info@company.com</p>
         </div>
       </div>
-      <form class="contact-form" data-aos="fade-left">
+      <form class="contact-form" data-aos="fade-left" data-aos-delay="300">
         <input type="text" placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
         <input type="tel" placeholder="Your Phone">
@@ -140,30 +219,76 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-section">
-        <h3>Company</h3>
-        <p>Your trusted partner for business setup in UAE</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-section">
-        <h3>Connect With Us</h3>
+      <div class="footer-section about">
+        <div class="footer-logo">
+          <img src="logo.jpg" alt="Logo" class="logo-img">
+        </div>
+        <p>Your trusted partner for business setup in UAE. We provide comprehensive solutions for mainland and free zone company formation, PRO services, and business consulting.</p>
         <div class="social-links">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section services">
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="mainland.html">UAE Mainland Setup</a></li>
+          <li><a href="freezone.html">Free Zone Setup</a></li>
+          <li><a href="pro-services.html">PRO Services</a></li>
+          <li><a href="offshore.html">Offshore License</a></li>
+          <li><a href="#">Business Consulting</a></li>
+          <li><a href="#">Visa Services</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter for the latest updates and insights.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p>&copy; 2024 Company. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Company. All rights reserved.</p>
-    </div>
   </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/971552621001?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener" 
+     aria-label="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    Chat with us on WhatsApp
+  </a>
 
   <!-- Scripts -->
   <script src="index.js"></script>

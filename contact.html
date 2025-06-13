@@ -24,8 +24,8 @@
   <style>
     .contact-hero {
       height: 50vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-        url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -262,29 +262,43 @@
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <img src="logo.jpg" alt="Logo" id="logo-img"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <h1 id="logo-text" style="display: none;">Logo</h1>
-      </div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <div class="dropdown">
-          <a href="#services" class="dropdown-trigger">Services <i class="fas fa-chevron-down"></i></a>
-          <div class="dropdown-content">
-            <a href="mainland.html">UAE Mainland Business Setup</a>
-            <a href="freezone.html">Free Zone Business Setup</a>
-            <a href="pro-services.html">PRO Services</a>
-            <a href="offshore.html">Offshore Business License</a>
-          </div>
-        </div>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="contact-info">
-        <a href="tel:+971552621001" class="phone">
-          <i class="fas fa-phone"></i> +971 55 262 1001
+        <a href="index.html">
+          <img src="logo.jpg" alt="Logo" class="logo-img">
         </a>
       </div>
+      <div class="nav-container">
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="dropdown">
+            <a href="#services" class="dropdown-trigger">Services <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-content">
+              <a href="mainland.html">UAE Mainland Business Setup</a>
+              <a href="freezone.html">Free Zone Business Setup</a>
+              <a href="pro-services.html">PRO Services</a>
+              <a href="offshore.html">Offshore Business License</a>
+            </div>
+          </div>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-input">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="contact-info">
+            <a href="tel:+971552621001" class="phone">
+              <i class="fas fa-phone"></i> +971 55 262 1001
+            </a>
+          </div>
+          <a href="#contact" class="cta-button nav-cta">Get Started</a>
+        </div>
+      </div>
+      <button class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
   </header>
 
@@ -298,7 +312,7 @@
 
   <!-- Contact Content -->
   <section class="contact-content">
-    <div class="contact-section" data-aos="slide-up">
+    <div class="contact-section" data-aos="fade-up" data-aos-delay="100">
       <h2>Get In Touch</h2>
       <p>Ready to start your business journey in the UAE? Our team of experts is here to guide you through every step of
         the process. Contact us today for a free consultation and let us help you establish your business successfully.
@@ -307,19 +321,19 @@
 
     <!-- Contact Information -->
     <div class="contact-grid">
-      <div class="contact-info-card" data-aos="zoom-in" data-aos-delay="100">
+      <div class="contact-info-card" data-aos="zoom-in" data-aos-delay="200">
         <i class="fas fa-map-marker-alt"></i>
         <h3>Our Location</h3>
         <p>Ras Al Khaimah</p>
         <p>United Arab Emirates</p>
       </div>
-      <div class="contact-info-card" data-aos="zoom-in" data-aos-delay="200">
+      <div class="contact-info-card" data-aos="zoom-in" data-aos-delay="300">
         <i class="fas fa-phone"></i>
         <h3>Phone Number</h3>
         <p><a href="tel:+971552621001">+971 55 262 1001</a></p>
         <p>Available 24/7</p>
       </div>
-      <div class="contact-info-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="contact-info-card" data-aos="zoom-in" data-aos-delay="400">
         <i class="fas fa-envelope"></i>
         <h3>Email Address</h3>
         <p><a href="mailto:info@company.com">info@company.com</a></p>
@@ -408,28 +422,60 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-section">
-        <h3>Company</h3>
-        <p>Your trusted partner for business setup in UAE</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <a href="index.html">Home</a>
-        <a href="#services">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-section">
-        <h3>Connect With Us</h3>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
+      <div class="footer-section about">
+        <div class="footer-logo">
+          <img src="logo.jpg" alt="Logo" class="logo-img">
         </div>
+        <p>Your trusted partner for business setup in UAE. We provide comprehensive solutions for mainland and free zone company formation, PRO services, and business consulting.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-section services">
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="mainland.html">UAE Mainland Setup</a></li>
+          <li><a href="freezone.html">Free Zone Setup</a></li>
+          <li><a href="pro-services.html">PRO Services</a></li>
+          <li><a href="offshore.html">Offshore License</a></li>
+          <li><a href="#">Business Consulting</a></li>
+          <li><a href="#">Visa Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-section newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter for the latest updates and insights.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Company. All rights reserved.</p>
+      <div class="footer-bottom-content">
+        <p>&copy; 2024 Company. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
     </div>
   </footer>
 
