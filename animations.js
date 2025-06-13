@@ -1,0 +1,80 @@
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+  root: null,
+  rootMargin: '0px 0px -100px 0px',
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-in');
+    }
+  });
+}, observerOptions);
+
+// Initialize animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Add animation classes to elements
+  const elementsToAnimate = [
+    '.service-section',
+    '.step-card',
+    '.benefits-list li',
+    '.service-card',
+    '.feature',
+    '.cta-section'
+  ];
+
+  elementsToAnimate.forEach(selector => {
+    document.querySelectorAll(selector).forEach((element, index) => {
+      element.classList.add('scroll-animate');
+      element.style.animationDelay = `${index * 0.1}s`;
+      observer.observe(element);
+    });
+  });
+
+  // Add hover effects to interactive elements
+  document.querySelectorAll('.service-card, .feature, .step-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-10px) scale(1.02)';
+      card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
+      card.style.transition = 'all 0.3s ease';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) scale(1)';
+      card.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+    });
+  });
+
+  // Add parallax effect to hero sections
+  const heroSections = document.querySelectorAll('.hero, .service-hero');
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    heroSections.forEach(hero => {
+      const rate = scrolled * -0.5;
+      hero.style.transform = `translateY(${rate}px)`;
+    });
+  });
+
+  // Add fade-in animation for benefits list items with stagger
+  const benefitItems = document.querySelectorAll('.benefits-list li');
+  benefitItems.forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.1}s`;
+  });
+}); 

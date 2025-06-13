@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact BBCFZE - Professional Business Consulting Services in UAE" />
+  <title>Contact Us - BBCFZE</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    .contact-hero {
+      height: 50vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 1rem;
+      margin-top: 80px;
+    }
+
+    .contact-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+    }
+
+    .contact-section {
+      margin-bottom: 4rem;
+    }
+
+    .contact-section h2 {
+      color: #000000;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .contact-section p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .contact-info-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-top: 4px solid #ff0000;
+    }
+
+    .contact-info-card i {
+      font-size: 2.5rem;
+      color: #ff0000;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info-card h3 {
+      color: #000000;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info-card p {
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info-card a {
+      color: #ff0000;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info-card a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form-section {
+      background: #f8f9fa;
+      padding: 4rem 2rem;
+      border-radius: 15px;
+      margin: 3rem 0;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 1rem;
+      background: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: #cc0000;
+    }
+
+    .office-hours {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .office-hours h3 {
+      color: #000000;
+      margin-bottom: 1.5rem;
+    }
+
+    .hours-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+
+    .map-section {
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .map-placeholder {
+      background: #f0f0f0;
+      height: 300px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 1.2rem;
+    }
+
+    .social-contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .social-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .social-card i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-card.facebook i {
+      color: #1877f2;
+    }
+
+    .social-card.instagram i {
+      color: #e4405f;
+    }
+
+    .social-card.linkedin i {
+      color: #0077b5;
+    }
+
+    .social-card.whatsapp i {
+      color: #25d366;
+    }
+
+    .cta-section {
+      background: #000000;
+      color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <h1>BBCFZE</h1>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#services" class="dropdown-trigger">Services <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="mainland.html">UAE Mainland Business Setup</a>
+            <a href="freezone.html">Free Zone Business Setup</a>
+            <a href="pro-services.html">PRO Services</a>
+            <a href="offshore.html">Offshore Business License</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="contact-info">
+        <a href="tel:+971552621001" class="phone">
+          <i class="fas fa-phone"></i> +971 55 262 1001
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="contact-hero" data-aos="fade-down" data-aos-duration="1000">
+    <div class="hero-content">
+      <h1>Contact BBCFZE</h1>
+      <p>Get in touch with our business consulting experts</p>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="contact-content">
+    <div class="contact-section" data-aos="slide-up">
+      <h2>Get In Touch</h2>
+      <p>Ready to start your business journey in the UAE? Our team of experts is here to guide you through every step of
+        the process. Contact us today for a free consultation and let us help you establish your business successfully.
+      </p>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="contact-grid">
+      <div class="contact-info-card" data-aos="zoom-in" data-aos-delay="100">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Our Location</h3>
+        <p>Ras Al Khaimah</p>
+        <p>United Arab Emirates</p>
+      </div>
+      <div class="contact-info-card" data-aos="zoom-in" data-aos-delay="200">
+        <i class="fas fa-phone"></i>
+        <h3>Phone Number</h3>
+        <p><a href="tel:+971552621001">+971 55 262 1001</a></p>
+        <p>Available 24/7</p>
+      </div>
+      <div class="contact-info-card" data-aos="zoom-in" data-aos-delay="300">
+        <i class="fas fa-envelope"></i>
+        <h3>Email Address</h3>
+        <p><a href="mailto:info@bbcfze.com">info@bbcfze.com</a></p>
+        <p>Quick response guaranteed</p>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form-section" data-aos="fade-up" data-aos-delay="200">
+      <h2>Send Us a Message</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Full Name *" required>
+        <input type="email" placeholder="Your Email Address *" required>
+        <input type="tel" placeholder="Your Phone Number">
+        <select required>
+          <option value="">Select Service *</option>
+          <option value="mainland">UAE Mainland Business Setup</option>
+          <option value="freezone">Free Zone Business Setup</option>
+          <option value="pro">PRO Services</option>
+          <option value="offshore">Offshore Business License</option>
+          <option value="consultation">General Consultation</option>
+        </select>
+        <textarea placeholder="Tell us about your business requirements *" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Office Hours & Social Media -->
+    <div class="contact-grid">
+      <div class="office-hours" data-aos="slide-right" data-aos-delay="100">
+        <h3>Office Hours</h3>
+        <ul class="hours-list">
+          <li><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></li>
+          <li><span>Saturday</span><span>9:00 AM - 2:00 PM</span></li>
+          <li><span>Sunday</span><span>Closed</span></li>
+          <li><span>Emergency Support</span><span>24/7 Available</span></li>
+        </ul>
+      </div>
+
+      <div data-aos="slide-left" data-aos-delay="200">
+        <h3 style="text-align: center; margin-bottom: 1.5rem; color: #000000;">Connect With Us</h3>
+        <div class="social-contact">
+          <div class="social-card facebook">
+            <i class="fab fa-facebook"></i>
+            <h4>Facebook</h4>
+            <p>Follow us for updates</p>
+          </div>
+          <div class="social-card instagram">
+            <i class="fab fa-instagram"></i>
+            <h4>Instagram</h4>
+            <p>See our latest work</p>
+          </div>
+          <div class="social-card linkedin">
+            <i class="fab fa-linkedin"></i>
+            <h4>LinkedIn</h4>
+            <p>Professional network</p>
+          </div>
+          <div class="social-card whatsapp">
+            <i class="fab fa-whatsapp"></i>
+            <h4>WhatsApp</h4>
+            <p>Quick chat support</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section" data-aos="fade-up" data-aos-delay="300">
+      <h2>Find Us</h2>
+      <div class="map-placeholder">
+        <p><i class="fas fa-map-marked-alt"></i> Interactive Map Coming Soon</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" data-aos="flip-up">
+    <h2>Ready to Start Your Business?</h2>
+    <p>Don't wait! Contact us today and take the first step towards establishing your business in the UAE</p>
+    <a href="tel:+971552621001" class="cta-button">Call Now: +971 55 262 1001</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>BBCFZE</h3>
+        <p>Your trusted partner for business setup in UAE</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="#services">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 BBCFZE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="index.js"></script>
+  <script src="animations.js"></script>
+
+  <!-- AOS Animation JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      easing: 'ease-in-out',
+      offset: 120,
+      once: false
+    });
+  </script>
+</body>
+
+</html>
