@@ -4,8 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About BBCFZE - Professional Business Consulting Services in UAE" />
-  <title>About Us - BBCFZE</title>
+  <meta name="description" content="About Us - Professional Business Consulting Services in UAE" />
+  <title>About Us</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon.svg">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css" />
@@ -160,7 +165,9 @@
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <h1>BBCFZE</h1>
+        <img src="logo.jpg" alt="Logo" class="logo-img" onload="console.log('Logo loaded successfully')"
+          onerror="console.log('Logo failed to load'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <h1 style="display: none; color: #ff0000; font-size: 1.8rem; font-weight: 700;">Logo</h1>
       </div>
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -187,7 +194,7 @@
   <!-- Hero -->
   <section class="about-hero" data-aos="fade-down" data-aos-duration="1000">
     <div class="hero-content">
-      <h1>About BBCFZE</h1>
+      <h1>About Us</h1>
       <p>Your trusted partner for business success in the UAE</p>
     </div>
   </section>
