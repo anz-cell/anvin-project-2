@@ -4,19 +4,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Business Bay Consultancy - UAE Mainland Business Setup Services. Expert guidance for company formation in Dubai and UAE mainland.">
-  <title>UAE Mainland Business Setup | Business Bay Consultancy</title>
+  <meta name="description" content="UAE Mainland Business Setup Services - Professional Business Consulting in UAE">
+  <title>UAE Mainland Business Setup</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="favicon.svg">
 
-  <!-- Styles -->
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .service-hero {
+      height: 50vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 1rem;
+      margin-top: 80px;
+    }
+
+    .service-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+    }
+
+    .service-section {
+      margin-bottom: 3rem;
+    }
+
+    .service-section h2 {
+      color: #000000;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .service-section p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .benefits-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .benefits-list li {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .benefits-list li:before {
+      content: '✓';
+      color: #ff0000;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .step-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .step-card i {
+      font-size: 2.5rem;
+      color: #ff0000;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section {
+      background: #000000;
+      color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+  </style>
 </head>
 
 <body>
@@ -25,17 +114,16 @@
     <nav class="navbar">
       <div class="logo">
         <a href="index.html">
-          <img src="logo.jpg" alt="Business Bay Consultancy Logo" class="logo-img">
+          <img src="logo.jpg" alt="Logo" class="logo-img">
         </a>
       </div>
-
       <div class="nav-container">
         <div class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
           <div class="dropdown">
-            <a href="#" class="dropdown-trigger active">Services <i class="fas fa-chevron-down"></i></a>
+            <a href="#services" class="dropdown-trigger">Services <i class="fas fa-chevron-down"></i></a>
             <div class="dropdown-content">
-              <a href="mainland.html" class="active">UAE Mainland Business Setup</a>
+              <a href="mainland.html">UAE Mainland Business Setup</a>
               <a href="freezone.html">Free Zone Business Setup</a>
               <a href="pro-services.html">PRO Services</a>
               <a href="offshore.html">Offshore Business License</a>
@@ -44,8 +132,11 @@
           <a href="about.html" class="nav-link">About</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
-
         <div class="nav-actions">
+          <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-input">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
           <div class="contact-info">
             <a href="tel:+971552621001" class="phone">
               <i class="fas fa-phone"></i> +971 55 262 1001
@@ -54,7 +145,6 @@
           <a href="#contact" class="cta-button nav-cta">Get Started</a>
         </div>
       </div>
-
       <button class="mobile-menu-btn">
         <span></span>
         <span></span>
@@ -63,155 +153,78 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="page-hero" data-aos="fade-down">
+  <!-- Service Hero Section -->
+  <section class="service-hero" data-aos="fade-down" data-aos-duration="1000">
     <div class="hero-content">
       <h1>UAE Mainland Business Setup</h1>
-      <p>Start your business journey in the UAE mainland with expert guidance from Business Bay Consultancy</p>
+      <p>Complete mainland company formation services with expert guidance</p>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Benefits Section -->
-    <section class="benefits-section" data-aos="fade-up">
-      <div class="container">
-        <h2>Why Choose UAE Mainland?</h2>
-        <div class="benefits-grid">
-          <div class="benefit-card" data-aos="fade-up">
-            <i class="fas fa-globe"></i>
-            <h3>100% Market Access</h3>
-            <p>Freedom to trade anywhere in the UAE and internationally</p>
-          </div>
-          <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
-            <i class="fas fa-handshake"></i>
-            <h3>No Restrictions</h3>
-            <p>Conduct business with both government and private sectors</p>
-          </div>
-          <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
-            <i class="fas fa-building"></i>
-            <h3>Multiple Branches</h3>
-            <p>Open multiple branches across the UAE</p>
-          </div>
-          <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
-            <i class="fas fa-users"></i>
-            <h3>Visa Allocation</h3>
-            <p>Higher visa quota based on office space</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Service Content -->
+  <section class="service-content">
+    <div class="service-section" data-aos="slide-up" data-aos-delay="100">
+      <h2>About Mainland Business Setup</h2>
+      <p>Setting up a mainland company in the UAE offers numerous advantages for businesses looking to establish a
+        strong presence in the region. Our expert team guides you through every step of the process, ensuring a smooth
+        and successful company formation.</p>
+    </div>
 
-    <!-- Process Section -->
-    <section class="process-section" data-aos="fade-up">
-      <div class="container">
-        <h2>Our Setup Process</h2>
-        <div class="process-steps">
-          <div class="step" data-aos="fade-right">
-            <div class="step-number">1</div>
-            <h3>Initial Consultation</h3>
-            <p>Free consultation to understand your business needs</p>
-          </div>
-          <div class="step" data-aos="fade-right" data-aos-delay="100">
-            <div class="step-number">2</div>
-            <h3>Documentation</h3>
-            <p>Assistance with document preparation and submission</p>
-          </div>
-          <div class="step" data-aos="fade-right" data-aos-delay="200">
-            <div class="step-number">3</div>
-            <h3>License Processing</h3>
-            <p>Handle all government procedures and approvals</p>
-          </div>
-          <div class="step" data-aos="fade-right" data-aos-delay="300">
-            <div class="step-number">4</div>
-            <h3>Company Formation</h3>
-            <p>Complete setup and handover of all documents</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="service-section" data-aos="slide-right" data-aos-delay="100">
+      <h2>Benefits of Mainland Business</h2>
+      <ul class="benefits-list">
+        <li>Ability to trade directly with the local market</li>
+        <li>No restrictions on business activities</li>
+        <li>Access to government contracts</li>
+        <li>Multiple visa options for employees</li>
+        <li>Full ownership rights</li>
+        <li>Strategic location for international business</li>
+      </ul>
+    </div>
 
-    <!-- Services Section -->
-    <section class="services-detail" data-aos="fade-up">
-      <div class="container">
-        <h2>Our Mainland Setup Services</h2>
-        <div class="services-grid">
-          <div class="service-item" data-aos="fade-up">
-            <h3>Trade License</h3>
-            <ul>
-              <li>Commercial License</li>
-              <li>Professional License</li>
-              <li>Industrial License</li>
-            </ul>
-          </div>
-          <div class="service-item" data-aos="fade-up" data-aos-delay="100">
-            <h3>Location Services</h3>
-            <ul>
-              <li>Office Space Selection</li>
-              <li>Lease Agreement</li>
-              <li>Ejari Registration</li>
-            </ul>
-          </div>
-          <div class="service-item" data-aos="fade-up" data-aos-delay="200">
-            <h3>Visa Services</h3>
-            <ul>
-              <li>Investor Visa</li>
-              <li>Employee Visas</li>
-              <li>Family Visas</li>
-            </ul>
-          </div>
-          <div class="service-item" data-aos="fade-up" data-aos-delay="300">
-            <h3>Additional Services</h3>
-            <ul>
-              <li>Bank Account Opening</li>
-              <li>Local Sponsorship</li>
-              <li>PRO Services</li>
-            </ul>
-          </div>
+    <div class="service-section" data-aos="fade-up" data-aos-delay="100">
+      <h2>Our Process</h2>
+      <div class="process-steps">
+        <div class="step-card" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-file-alt"></i>
+          <h3>Initial Consultation</h3>
+          <p>We understand your business requirements and objectives</p>
+        </div>
+        <div class="step-card" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fas fa-check-circle"></i>
+          <h3>Documentation</h3>
+          <p>We handle all necessary paperwork and legal requirements</p>
+        </div>
+        <div class="step-card" data-aos="zoom-in" data-aos-delay="300">
+          <i class="fas fa-building"></i>
+          <h3>Company Formation</h3>
+          <p>We establish your company with the relevant authorities</p>
+        </div>
+        <div class="step-card" data-aos="zoom-in" data-aos-delay="400">
+          <i class="fas fa-id-card"></i>
+          <h3>Visa Processing</h3>
+          <p>We assist with visa applications for you and your employees</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section" data-aos="fade-up">
-      <div class="container">
-        <h2>Start Your Business Journey Today</h2>
-        <div class="contact-grid">
-          <div class="contact-info" data-aos="fade-right">
-            <h3>Get in Touch</h3>
-            <div class="info-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <p>Ras Al Khaimah, United Arab Emirates</p>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-phone"></i>
-              <p>+971 55 262 1001</p>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-envelope"></i>
-              <p>info@businessbayconsultancy.com</p>
-            </div>
-          </div>
-          <form class="contact-form" data-aos="fade-left">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="tel" placeholder="Your Phone">
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="submit-button">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
+  <!-- CTA Section -->
+  <section class="cta-section" data-aos="flip-up">
+    <h2>Ready to Start Your Business Journey?</h2>
+    <p>Contact us today for a free consultation</p>
+    <a href="contact.html" class="cta-button">Get Started</a>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-section about">
         <div class="footer-logo">
-          <img src="logo.jpg" alt="Business Bay Consultancy Logo" class="logo-img">
+          <img src="logo.jpg" alt="Logo" class="logo-img">
         </div>
-        <p>Business Bay Consultancy is your trusted partner for business setup in UAE. We provide comprehensive solutions for mainland and free zone company formation, PRO services, and business consulting with a proven track record of excellence.</p>
+        <p>Your trusted partner for business setup in UAE. We provide comprehensive solutions for mainland and free zone
+          company formation, PRO services, and business consulting.</p>
         <div class="social-links">
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
           <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -219,11 +232,10 @@
           <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-
       <div class="footer-section links">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -231,7 +243,6 @@
           <li><a href="#">Terms of Service</a></li>
         </ul>
       </div>
-
       <div class="footer-section services">
         <h3>Our Services</h3>
         <ul>
@@ -243,7 +254,6 @@
           <li><a href="#">Visa Services</a></li>
         </ul>
       </div>
-
       <div class="footer-section newsletter">
         <h3>Newsletter</h3>
         <p>Subscribe to our newsletter for the latest updates and insights.</p>
@@ -255,10 +265,9 @@
         </form>
       </div>
     </div>
-
     <div class="footer-bottom">
       <div class="footer-bottom-content">
-        <p>&copy; 2024 Business Bay Consultancy. All rights reserved.</p>
+        <p>&copy; 2024 Company. All rights reserved.</p>
         <div class="footer-bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
@@ -269,7 +278,7 @@
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/971552621001?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20mainland%20business%20setup."
+  <a href="https://wa.me/971552621001?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
     class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
     <i class="fab fa-whatsapp"></i>
     Chat with us on WhatsApp
@@ -278,6 +287,8 @@
   <!-- Scripts -->
   <script src="index.js"></script>
   <script src="animations.js"></script>
+
+  <!-- AOS Animation JS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
