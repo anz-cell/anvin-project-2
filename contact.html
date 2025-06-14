@@ -22,34 +22,120 @@
 
   <style>
     .contact-hero {
-      height: 50vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80');
-      background-size: cover;
-      background-position: center;
+      height: 60vh;
+      position: relative;
+      background: linear-gradient(135deg, 
+        rgba(255, 0, 0, 0.9) 0%, 
+        rgba(26, 35, 126, 0.9) 50%, 
+        rgba(0, 0, 0, 0.9) 100%),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
       display: flex;
       align-items: center;
       text-align: center;
       color: white;
       padding: 0 1rem;
       margin-top: 80px;
+      overflow: hidden;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+      animation: float 20s infinite linear;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-badge i {
+      color: var(--accent);
     }
 
     .contact-content {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 4rem 1rem;
+      padding: 5rem 2rem;
     }
 
     .contact-section {
       margin-bottom: 4rem;
+      padding: 3rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
     }
 
     .contact-section h2 {
-      color: #000000;
+      color: var(--text-dark);
       margin-bottom: 1.5rem;
-      font-size: 2rem;
+      font-size: 2.2rem;
       text-align: center;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .contact-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
     .contact-section p {
@@ -59,55 +145,125 @@
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
+      font-size: 1.1rem;
+      color: var(--gray-medium);
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
       margin-top: 3rem;
     }
 
     .contact-info-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       text-align: center;
-      border-top: 4px solid #ff0000;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+    }
+
+    .contact-info-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
     .contact-info-card i {
-      font-size: 2.5rem;
-      color: #ff0000;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
     }
 
     .contact-info-card h3 {
-      color: #000000;
+      color: var(--text-dark);
       margin-bottom: 1rem;
+      font-size: 1.3rem;
     }
 
     .contact-info-card p {
-      color: #666;
+      color: var(--gray-medium);
       margin-bottom: 0.5rem;
+      font-size: 1rem;
     }
 
     .contact-info-card a {
-      color: #ff0000;
+      color: var(--primary);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
 
     .contact-info-card a:hover {
+      color: var(--primary-dark);
       text-decoration: underline;
     }
 
     .contact-form-section {
-      background: #f8f9fa;
+      background: linear-gradient(135deg, var(--gray-light) 0%, rgba(255, 255, 255, 0.95) 100%);
       padding: 4rem 2rem;
-      border-radius: 15px;
-      margin: 3rem 0;
+      border-radius: 20px;
+      margin: 4rem 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+    }
+
+    .contact-form-section h2 {
+      text-align: center;
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .contact-form-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
     .contact-form {
@@ -119,12 +275,26 @@
     .contact-form textarea,
     .contact-form select {
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 1.5rem;
       margin-bottom: 1.5rem;
-      border: 1px solid #ddd;
-      border-radius: 5px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
       font-family: 'Poppins', sans-serif;
       font-size: 1rem;
+      transition: all 0.3s ease;
+      color: var(--text-dark);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+      transform: translateY(-2px);
+      outline: none;
+      background: rgba(255, 255, 255, 0.95);
     }
 
     .contact-form textarea {
@@ -134,32 +304,72 @@
 
     .contact-form button {
       width: 100%;
-      padding: 1rem;
-      background: #ff0000;
+      padding: 1.2rem 2rem;
+      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       font-size: 1.1rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
+    }
+
+    .contact-form button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .contact-form button:hover::before {
+      left: 100%;
     }
 
     .contact-form button:hover {
-      background: #cc0000;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 0, 0, 0.4);
     }
 
     .office-hours {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .office-hours::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+    }
+
+    .office-hours:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     }
 
     .office-hours h3 {
-      color: #000000;
+      color: var(--text-dark);
       margin-bottom: 1.5rem;
+      font-size: 1.5rem;
     }
 
     .hours-list {
@@ -170,33 +380,90 @@
     .hours-list li {
       display: flex;
       justify-content: space-between;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      font-size: 1rem;
     }
 
     .hours-list li:last-child {
       border-bottom: none;
     }
 
+    .hours-list li span:first-child {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .hours-list li span:last-child {
+      color: var(--gray-medium);
+    }
+
     .map-section {
-      margin: 3rem 0;
+      margin: 4rem 0;
       text-align: center;
+    }
+
+    .map-section h2 {
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .map-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
     .map-container {
       width: 100%;
       max-width: 1000px;
       margin: 0 auto;
-      border-radius: 10px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .map-container iframe {
       width: 100%;
       height: 400px;
       border: none;
-      border-radius: 10px;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .contact-content {
+        padding: 3rem 1rem;
+      }
+      
+      .contact-section {
+        padding: 2rem;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-form-section {
+        padding: 3rem 1rem;
+      }
+      
+      .map-container iframe {
+        height: 300px;
+      }
     }
 
     .social-contact {
@@ -304,8 +571,12 @@
   <!-- Hero -->
   <section class="contact-hero" data-aos="fade-down" data-aos-duration="1000">
     <div class="hero-content">
+      <div class="hero-badge" data-aos="zoom-in" data-aos-delay="200">
+        <i class="fas fa-envelope"></i>
+        <span>Get In Touch</span>
+      </div>
       <h1>Contact Us</h1>
-      <p>Get in touch with our business consulting experts</p>
+      <p>Ready to start your business journey? Get in touch with our experts today</p>
     </div>
   </section>
 
