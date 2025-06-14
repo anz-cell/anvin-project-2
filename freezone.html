@@ -4,18 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="UAE Free Zone Business Setup Services - Professional Business Consulting in UAE">
-  <title>Free Zone Business Setup</title>
+  <meta name="description" content="Business Bay Consultancy - UAE Free Zone Business Setup Services. Expert guidance for company formation in UAE free zones.">
+  <title>Free Zone Business Setup | Business Bay Consultancy</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="favicon.svg">
 
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
     .service-hero {
       height: 50vh;
@@ -112,17 +113,18 @@
     <nav class="navbar">
       <div class="logo">
         <a href="index.html">
-          <img src="logo.jpg" alt="Logo" class="logo-img">
+          <img src="logo.jpg" alt="Business Bay Consultancy Logo" class="logo-img">
         </a>
       </div>
+
       <div class="nav-container">
         <div class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
           <div class="dropdown">
-            <a href="#services" class="dropdown-trigger">Services <i class="fas fa-chevron-down"></i></a>
+            <a href="#" class="dropdown-trigger active">Services <i class="fas fa-chevron-down"></i></a>
             <div class="dropdown-content">
               <a href="mainland.html">UAE Mainland Business Setup</a>
-              <a href="freezone.html">Free Zone Business Setup</a>
+              <a href="freezone.html" class="active">Free Zone Business Setup</a>
               <a href="pro-services.html">PRO Services</a>
               <a href="offshore.html">Offshore Business License</a>
             </div>
@@ -130,11 +132,8 @@
           <a href="about.html" class="nav-link">About</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
+
         <div class="nav-actions">
-          <div class="search-container">
-            <input type="text" placeholder="Search..." class="search-input">
-            <button class="search-btn"><i class="fas fa-search"></i></button>
-          </div>
           <div class="contact-info">
             <a href="tel:+971552621001" class="phone">
               <i class="fas fa-phone"></i> +971 55 262 1001
@@ -143,6 +142,7 @@
           <a href="#contact" class="cta-button nav-cta">Get Started</a>
         </div>
       </div>
+
       <button class="mobile-menu-btn">
         <span></span>
         <span></span>
@@ -151,78 +151,175 @@
     </nav>
   </header>
 
-  <!-- Service Hero Section -->
-  <section class="service-hero" data-aos="fade-down" data-aos-duration="1000">
+  <!-- Hero Section -->
+  <section class="page-hero" data-aos="fade-down">
     <div class="hero-content">
       <h1>Free Zone Business Setup</h1>
-      <p>Strategic free zone company formation tailored to your business needs</p>
+      <p>Start your business in UAE's thriving free zones with expert guidance from Business Bay Consultancy</p>
     </div>
   </section>
 
-  <!-- Service Content -->
-  <section class="service-content">
-    <div class="service-section" data-aos="slide-up" data-aos-delay="100">
-      <h2>About Free Zone Business Setup</h2>
-      <p>UAE Free Zones offer an attractive business environment with 100% foreign ownership, tax benefits, and
-        simplified business setup procedures. Our expert team helps you choose the right free zone and guides you
-        through the entire setup process.</p>
-    </div>
-
-    <div class="service-section" data-aos="slide-right" data-aos-delay="100">
-      <h2>Benefits of Free Zone Business</h2>
-      <ul class="benefits-list">
-        <li>100% foreign ownership</li>
-        <li>100% tax exemption</li>
-        <li>100% repatriation of capital and profits</li>
-        <li>No currency restrictions</li>
-        <li>Modern infrastructure and facilities</li>
-        <li>Streamlined business setup process</li>
-        <li>Multiple visa options for employees</li>
-      </ul>
-    </div>
-
-    <div class="service-section" data-aos="fade-up" data-aos-delay="100">
-      <h2>Our Process</h2>
-      <div class="process-steps">
-        <div class="step-card" data-aos="zoom-in" data-aos-delay="100">
-          <i class="fas fa-search"></i>
-          <h3>Free Zone Selection</h3>
-          <p>We help you choose the most suitable free zone for your business</p>
-        </div>
-        <div class="step-card" data-aos="zoom-in" data-aos-delay="200">
-          <i class="fas fa-file-signature"></i>
-          <h3>License Application</h3>
-          <p>We handle all documentation and license applications</p>
-        </div>
-        <div class="step-card" data-aos="zoom-in" data-aos-delay="300">
-          <i class="fas fa-building"></i>
-          <h3>Office Setup</h3>
-          <p>We assist with office space selection and setup</p>
-        </div>
-        <div class="step-card" data-aos="zoom-in" data-aos-delay="400">
-          <i class="fas fa-users"></i>
-          <h3>Visa Processing</h3>
-          <p>We manage employee visa applications and processing</p>
+  <!-- Main Content -->
+  <main>
+    <!-- Free Zones Overview -->
+    <section class="freezone-overview" data-aos="fade-up">
+      <div class="container">
+        <h2>Popular UAE Free Zones</h2>
+        <div class="freezone-grid">
+          <div class="freezone-card" data-aos="fade-up">
+            <i class="fas fa-industry"></i>
+            <h3>JAFZA</h3>
+            <p>Jebel Ali Free Zone</p>
+            <ul>
+              <li>Strategic Location</li>
+              <li>World-class Infrastructure</li>
+              <li>Global Trade Hub</li>
+            </ul>
+          </div>
+          <div class="freezone-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-laptop-code"></i>
+            <h3>DMCC</h3>
+            <p>Dubai Multi Commodities Centre</p>
+            <ul>
+              <li>Commodities Trading</li>
+              <li>Digital Economy</li>
+              <li>Innovation Hub</li>
+            </ul>
+          </div>
+          <div class="freezone-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-plane"></i>
+            <h3>DAFZA</h3>
+            <p>Dubai Airport Free Zone</p>
+            <ul>
+              <li>Airport Connectivity</li>
+              <li>Logistics Excellence</li>
+              <li>Fast-track Setup</li>
+            </ul>
+          </div>
+          <div class="freezone-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-desktop"></i>
+            <h3>DIC</h3>
+            <p>Dubai Internet City</p>
+            <ul>
+              <li>Tech Innovation</li>
+              <li>Digital Infrastructure</li>
+              <li>Industry Networks</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section" data-aos="flip-up" data-aos-delay="100">
-    <h2>Ready to Start Your Free Zone Business?</h2>
-    <p>Contact us today for a free consultation</p>
-    <a href="contact.html" class="cta-button">Get Started</a>
-  </section>
+    <!-- Benefits Section -->
+    <section class="benefits-section" data-aos="fade-up">
+      <div class="container">
+        <h2>Benefits of Free Zone Setup</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card" data-aos="fade-up">
+            <i class="fas fa-percentage"></i>
+            <h3>100% Ownership</h3>
+            <p>Full foreign ownership without local sponsor</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-coins"></i>
+            <h3>Tax Benefits</h3>
+            <p>0% corporate and personal tax</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-sync"></i>
+            <h3>Capital Repatriation</h3>
+            <p>100% repatriation of capital and profits</p>
+          </div>
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-file-invoice"></i>
+            <h3>Simple Process</h3>
+            <p>Streamlined documentation and setup</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-detail" data-aos="fade-up">
+      <div class="container">
+        <h2>Our Free Zone Services</h2>
+        <div class="services-grid">
+          <div class="service-item" data-aos="fade-up">
+            <h3>License Types</h3>
+            <ul>
+              <li>Trading License</li>
+              <li>Service License</li>
+              <li>Industrial License</li>
+            </ul>
+          </div>
+          <div class="service-item" data-aos="fade-up" data-aos-delay="100">
+            <h3>Setup Services</h3>
+            <ul>
+              <li>Free Zone Selection</li>
+              <li>Documentation</li>
+              <li>License Processing</li>
+            </ul>
+          </div>
+          <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+            <h3>Additional Services</h3>
+            <ul>
+              <li>Bank Account Opening</li>
+              <li>Office Space</li>
+              <li>Visa Processing</li>
+            </ul>
+          </div>
+          <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+            <h3>Support Services</h3>
+            <ul>
+              <li>Business Planning</li>
+              <li>Legal Assistance</li>
+              <li>PRO Services</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" data-aos="fade-up">
+      <div class="container">
+        <h2>Start Your Free Zone Journey Today</h2>
+        <div class="contact-grid">
+          <div class="contact-info" data-aos="fade-right">
+            <h3>Get in Touch</h3>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>Ras Al Khaimah, United Arab Emirates</p>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <p>+971 55 262 1001</p>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <p>info@businessbayconsultancy.com</p>
+            </div>
+          </div>
+          <form class="contact-form" data-aos="fade-left">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="tel" placeholder="Your Phone">
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="submit-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-section about">
         <div class="footer-logo">
-          <img src="logo.jpg" alt="Logo" class="logo-img">
+          <img src="logo.jpg" alt="Business Bay Consultancy Logo" class="logo-img">
         </div>
-        <p>Your trusted partner for business setup in UAE. We provide comprehensive solutions for mainland and free zone company formation, PRO services, and business consulting.</p>
+        <p>Business Bay Consultancy is your trusted partner for business setup in UAE. We provide comprehensive solutions for mainland and free zone company formation, PRO services, and business consulting with a proven track record of excellence.</p>
         <div class="social-links">
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
           <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -230,10 +327,11 @@
           <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
+
       <div class="footer-section links">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="#home">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -241,6 +339,7 @@
           <li><a href="#">Terms of Service</a></li>
         </ul>
       </div>
+
       <div class="footer-section services">
         <h3>Our Services</h3>
         <ul>
@@ -252,6 +351,7 @@
           <li><a href="#">Visa Services</a></li>
         </ul>
       </div>
+
       <div class="footer-section newsletter">
         <h3>Newsletter</h3>
         <p>Subscribe to our newsletter for the latest updates and insights.</p>
@@ -263,9 +363,10 @@
         </form>
       </div>
     </div>
+
     <div class="footer-bottom">
       <div class="footer-bottom-content">
-        <p>&copy; 2024 Company. All rights reserved.</p>
+        <p>&copy; 2024 Business Bay Consultancy. All rights reserved.</p>
         <div class="footer-bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
@@ -276,11 +377,8 @@
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/971552621001?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
-     class="whatsapp-float" 
-     target="_blank" 
-     rel="noopener" 
-     aria-label="Chat with us on WhatsApp">
+  <a href="https://wa.me/971552621001?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20free%20zone%20business%20setup."
+    class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
     <i class="fab fa-whatsapp"></i>
     Chat with us on WhatsApp
   </a>
