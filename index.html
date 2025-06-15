@@ -418,12 +418,27 @@
           <p>Bbcfze@gmail.com</p>
         </div>
       </div>
-      <form class="contact-form" data-aos="fade-left" data-aos-delay="300">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <input type="tel" placeholder="Your Phone">
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit" class="submit-button">Send Message</button>
+      <form class="contact-form" data-aos="fade-left" data-aos-delay="300" 
+            action="https://formspree.io/f/mvgrrqov" method="POST" id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone">
+        <select name="service" required>
+          <option value="">Select Service</option>
+          <option value="mainland">UAE Mainland Business Setup</option>
+          <option value="freezone">Free Zone Business Setup</option>
+          <option value="pro">PRO Services</option>
+          <option value="offshore">Offshore Business License</option>
+          <option value="consultation">General Consultation</option>
+        </select>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="submit-button" id="submitBtn">
+          <span class="btn-text">Send Message</span>
+          <span class="btn-loading" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i> Sending...
+          </span>
+        </button>
+        <div id="form-status" class="form-status" style="display: none;"></div>
       </form>
     </div>
   </section>
@@ -472,8 +487,8 @@
       <div class="footer-section newsletter">
         <h3>Newsletter</h3>
         <p>Subscribe to our newsletter for the latest updates and insights.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required>
+        <form class="newsletter-form" action="simple-newsletter.php" method="POST" id="newsletterForm">
+          <input type="email" name="email" placeholder="Enter your email" required>
           <button type="submit">
             <i class="fas fa-paper-plane"></i>
           </button>
@@ -510,6 +525,120 @@
       easing: 'ease-in-out',
       offset: 120,
       once: false
+    });
+
+    // Contact Form Handler
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoading = submitBtn.querySelector('.btn-loading');
+      const formStatus = document.getElementById('form-status');
+      
+      // Show loading state
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline-flex';
+      submitBtn.disabled = true;
+      
+      try {
+        const formData = new FormData(this);
+        const response = await fetch(this.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          formStatus.style.display = 'block';
+          formStatus.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We\'ll get back to you soon.</div>';
+          formStatus.className = 'form-status success';
+          this.reset();
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } catch (error) {
+        formStatus.style.display = 'block';
+        formStatus.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-circle"></i> Sorry, there was an error sending your message. Please try again or contact us directly.</div>';
+        formStatus.className = 'form-status error';
+      }
+      
+      // Reset button state
+      btnText.style.display = 'inline';
+      btnLoading.style.display = 'none';
+      submitBtn.disabled = false;
+      
+      // Hide status message after 5 seconds
+      setTimeout(() => {
+        formStatus.style.display = 'none';
+      }, 5000);
+    });
+
+    // Newsletter Form Handler
+    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const button = this.querySelector('button[type="submit"]');
+      const originalContent = button.innerHTML;
+      
+      // Show loading state
+      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+      button.disabled = true;
+      
+      try {
+        const formData = new FormData(this);
+        const response = await fetch(this.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Show success message
+          const input = this.querySelector('input[name="email"]');
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'color: #4CAF50; font-size: 0.9rem; margin-top: 10px; text-align: center;';
+          successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you for subscribing!';
+          
+          // Remove existing success message if any
+          const existingMsg = this.querySelector('.success-message');
+          if (existingMsg) existingMsg.remove();
+          
+          this.appendChild(successMsg);
+          this.reset();
+          
+          // Remove success message after 3 seconds
+          setTimeout(() => {
+            successMsg.remove();
+          }, 3000);
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } catch (error) {
+        // Show error message
+        const errorMsg = document.createElement('div');
+        errorMsg.style.cssText = 'color: #f44336; font-size: 0.9rem; margin-top: 10px; text-align: center;';
+        errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error subscribing. Please try again.';
+        
+        // Remove existing error message if any
+        const existingMsg = this.querySelector('.error-message');
+        if (existingMsg) existingMsg.remove();
+        
+        this.appendChild(errorMsg);
+        
+        // Remove error message after 3 seconds
+        setTimeout(() => {
+          errorMsg.remove();
+        }, 3000);
+      }
+      
+      // Reset button state
+      button.innerHTML = originalContent;
+      button.disabled = false;
     });
   </script>
 </body>

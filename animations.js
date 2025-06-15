@@ -1,31 +1,19 @@
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  });
-});
+// Smooth scrolling is handled in index.js to avoid conflicts
 
 // Intersection Observer for scroll animations
-const observerOptions = {
+const animationObserverOptions = {
   root: null,
   rootMargin: "0px 0px -100px 0px",
   threshold: 0.1,
 };
 
-const observer = new IntersectionObserver((entries) => {
+const animationObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("animate-in");
     }
   });
-}, observerOptions);
+}, animationObserverOptions);
 
 // Initialize animations when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(selector).forEach((element, index) => {
       element.classList.add("scroll-animate");
       element.style.animationDelay = `${index * 0.1}s`;
-      observer.observe(element);
+      animationObserver.observe(element);
     });
   });
 

@@ -1,3 +1,7 @@
+// Mobile menu elements (declare first for use in navigation)
+const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+const navContainer = document.querySelector(".nav-container");
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -9,8 +13,10 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         block: "start",
       });
       // Close mobile menu if open
-      navContainer.classList.remove("active");
-      mobileMenuBtn.classList.remove("active");
+      if (navContainer && mobileMenuBtn) {
+        navContainer.classList.remove("active");
+        mobileMenuBtn.classList.remove("active");
+      }
     }
   });
 });
@@ -49,95 +55,20 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 
-// Form submission handling
-const contactForm = document.querySelector(".contact-form");
-const successMessage = document.querySelector(".success-message");
+// Contact form is now handled by the inline script in index.html
+// This section has been removed to prevent conflicts
 
-if (contactForm) {
-  contactForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+// Intersection Observer functionality moved to animations.js to avoid conflicts
 
-    // Basic form validation
-    const formData = new FormData(contactForm);
-    let isValid = true;
-    let firstInvalidInput = null;
-
-    contactForm.querySelectorAll("input, textarea, select").forEach((input) => {
-      if (input.hasAttribute("required") && !input.value.trim()) {
-        isValid = false;
-        input.classList.add("invalid");
-        if (!firstInvalidInput) firstInvalidInput = input;
-      } else {
-        input.classList.remove("invalid");
-      }
-    });
-
-    if (!isValid) {
-      firstInvalidInput.focus();
-      return;
-    }
-
-    // Show loading state
-    const submitButton = contactForm.querySelector(".submit-button");
-    const originalButtonText = submitButton.innerHTML;
-    submitButton.innerHTML =
-      '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitButton.disabled = true;
-
-    try {
-      // Simulate form submission (replace with actual API call)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // Show success message
-      successMessage.classList.add("active");
-      contactForm.reset();
-
-      // Hide success message after 3 seconds
-      setTimeout(() => {
-        successMessage.classList.remove("active");
-      }, 3000);
-    } catch (error) {
-      console.error("Form submission error:", error);
-      alert("There was an error submitting the form. Please try again.");
-    } finally {
-      // Reset button state
-      submitButton.innerHTML = originalButtonText;
-      submitButton.disabled = false;
-    }
+// Mobile menu toggle (already declared above)
+if (mobileMenuBtn && navContainer) {
+  mobileMenuBtn.addEventListener("click", () => {
+    navContainer.classList.toggle("active");
+    mobileMenuBtn.classList.toggle("active");
   });
 }
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.1,
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("fade-in");
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
-// Observe all service cards and features
-document.querySelectorAll(".service-card, .feature").forEach((element) => {
-  observer.observe(element);
-});
-
-// Mobile menu toggle
-const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-const navContainer = document.querySelector(".nav-container");
-
-mobileMenuBtn.addEventListener("click", () => {
-  navContainer.classList.toggle("active");
-  mobileMenuBtn.classList.toggle("active");
-});
-
-// Newsletter Form
+// Newsletter Form Handler
 const newsletterForm = document.querySelector(".newsletter-form");
 
 if (newsletterForm) {
@@ -148,26 +79,64 @@ if (newsletterForm) {
 
     if (!emailInput.value.trim()) {
       emailInput.classList.add("invalid");
+      emailInput.focus();
       return;
     }
 
+    // Remove invalid class if email is valid
+    emailInput.classList.remove("invalid");
+
     // Show loading state
+    const originalButtonHTML = submitButton.innerHTML;
     submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
     submitButton.disabled = true;
 
     try {
-      // Simulate newsletter subscription (replace with actual API call)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      alert("Thank you for subscribing to our newsletter!");
-      newsletterForm.reset();
+      // Submit to Formspree
+      const formData = new FormData(newsletterForm);
+      const response = await fetch(newsletterForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        // Show success message
+        const successDiv = document.createElement("div");
+        successDiv.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: #d4edda;
+          color: #155724;
+          padding: 1rem 1.5rem;
+          border-radius: 8px;
+          border: 1px solid #c3e6cb;
+          z-index: 9999;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          font-weight: 500;
+        `;
+        successDiv.innerHTML =
+          '<i class="fas fa-check-circle"></i> Thanks for subscribing to our newsletter!';
+        document.body.appendChild(successDiv);
+
+        // Remove success message after 5 seconds
+        setTimeout(() => {
+          successDiv.remove();
+        }, 5000);
+
+        newsletterForm.reset();
+      } else {
+        throw new Error("Network response was not ok");
+      }
     } catch (error) {
       console.error("Newsletter subscription error:", error);
-      alert(
-        "There was an error subscribing to the newsletter. Please try again."
-      );
+      alert("There was an error subscribing. Please try again.");
     } finally {
       // Reset button state
-      submitButton.innerHTML = '<i class="fas fa-paper-plane"></i>';
+      submitButton.innerHTML = originalButtonHTML;
       submitButton.disabled = false;
     }
   });
@@ -193,10 +162,4 @@ if (searchInput && searchBtn) {
   });
 }
 
-// Initialize AOS
-AOS.init({
-  duration: 800,
-  easing: "ease-in-out",
-  once: true,
-  offset: 100,
-});
+// AOS initialization moved to inline script in index.html to avoid conflicts
