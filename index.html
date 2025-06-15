@@ -484,15 +484,14 @@
         </ul>
       </div>
 
-      <div class="footer-section newsletter">
-        <h3>Newsletter</h3>
-        <p>Subscribe to our newsletter for the latest updates and insights.</p>
-        <form class="newsletter-form" action="simple-newsletter.php" method="POST" id="newsletterForm">
-          <input type="email" name="email" placeholder="Enter your email" required>
-          <button type="submit">
-            <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
+      <div class="footer-section contact-info">
+        <h3>Contact Info</h3>
+        <div class="contact-details">
+          <p><i class="fas fa-map-marker-alt"></i> Ras Al Khaimah, UAE</p>
+          <p><i class="fas fa-phone"></i> +971 55 262 1001</p>
+          <p><i class="fas fa-envelope"></i> Info@bbcfze.com</p>
+          <p><i class="fas fa-envelope"></i> Bbcfze@gmail.com</p>
+        </div>
       </div>
     </div>
 
@@ -576,70 +575,7 @@
       }, 5000);
     });
 
-    // Newsletter Form Handler
-    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const button = this.querySelector('button[type="submit"]');
-      const originalContent = button.innerHTML;
-      
-      // Show loading state
-      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-      button.disabled = true;
-      
-      try {
-        const formData = new FormData(this);
-        const response = await fetch(this.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-        
-        if (response.ok) {
-          // Show success message
-          const input = this.querySelector('input[name="email"]');
-          const successMsg = document.createElement('div');
-          successMsg.style.cssText = 'color: #4CAF50; font-size: 0.9rem; margin-top: 10px; text-align: center;';
-          successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you for subscribing!';
-          
-          // Remove existing success message if any
-          const existingMsg = this.querySelector('.success-message');
-          if (existingMsg) existingMsg.remove();
-          
-          this.appendChild(successMsg);
-          this.reset();
-          
-          // Remove success message after 3 seconds
-          setTimeout(() => {
-            successMsg.remove();
-          }, 3000);
-        } else {
-          throw new Error('Network response was not ok');
-        }
-      } catch (error) {
-        // Show error message
-        const errorMsg = document.createElement('div');
-        errorMsg.style.cssText = 'color: #f44336; font-size: 0.9rem; margin-top: 10px; text-align: center;';
-        errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error subscribing. Please try again.';
-        
-        // Remove existing error message if any
-        const existingMsg = this.querySelector('.error-message');
-        if (existingMsg) existingMsg.remove();
-        
-        this.appendChild(errorMsg);
-        
-        // Remove error message after 3 seconds
-        setTimeout(() => {
-          errorMsg.remove();
-        }, 3000);
-      }
-      
-      // Reset button state
-      button.innerHTML = originalContent;
-      button.disabled = false;
-    });
+
   </script>
 </body>
 
