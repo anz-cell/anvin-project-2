@@ -65,19 +65,28 @@ p {
   position: fixed;
   width: 100%;
   top: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.95),
-    rgba(26, 35, 126, 0.95)
-  );
+  background: transparent;
   box-shadow: var(--shadow-lg);
   z-index: 1000;
   transition: var(--transition-fast);
 }
 
 .header.scrolled {
-  background: rgba(0, 0, 0, 0.98);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.95),
+    rgba(26, 35, 126, 0.95)
+  );
   padding: 0.5rem 0;
+}
+
+/* Header styling for inner pages to ensure visibility on light backgrounds */
+body.inner-page .header {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.95),
+    rgba(26, 35, 126, 0.95)
+  );
 }
 
 .navbar {
@@ -251,19 +260,20 @@ p {
   max-width: 200px;
   object-fit: contain;
   display: block;
-  border: 2px solid red;
-  /* Temporary debugging border */
-  background: white;
-  /* Temporary background to see if image loads */
 }
 
 .contact-info .phone {
   text-decoration: none;
-  color: #ff0000;
+  color: var(--text-light);
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+/* Phone link hover state */
+.contact-info .phone:hover {
+  color: var(--primary);
 }
 
 /* Dropdown Styles */
@@ -410,9 +420,26 @@ p {
 }
 
 .hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  overflow: hidden;
+  pointer-events: none;
+  display: block;
+}
+
+.hero-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
+  border: none;
 }
 
 .hero-overlay {
@@ -433,6 +460,12 @@ p {
   margin-bottom: 1.5rem;
   line-height: 1.2;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  text-wrap: balance;
+  word-break: break-word;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-content p {
@@ -692,7 +725,7 @@ p {
 
 /* Services Section */
 .services {
-  padding: 5rem 2rem;
+  padding: 2rem 2rem 5rem;
   background: var(--gray-light);
 }
 
@@ -2489,5 +2522,98 @@ html {
 
   .stat-info {
     text-align: center;
+  }
+}
+
+.primary-service {
+  border: 2.5px solid var(--accent);
+  box-shadow: 0 0 40px 0 rgba(255, 215, 0, 0.25),
+    0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+  z-index: 2;
+  background: linear-gradient(120deg, #fffbe6 60%, #fff 100%);
+}
+
+.primary-service .service-icon {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.highlight-bbc {
+  display: inline-block;
+  background: linear-gradient(90deg, #ffd700 0%, #ff8c00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 900;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  animation: bbc-glow-text 2s infinite alternate;
+}
+@keyframes bbc-glow-text {
+  0% {
+    filter: drop-shadow(0 0 4px #ffd70080);
+  }
+  100% {
+    filter: drop-shadow(0 0 10px #ffd700);
+  }
+}
+
+/* =============================
+   Connect With Us – Social Cards
+   ============================= */
+.social-contact {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.social-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  width: 220px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.social-card i {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.social-card h4 {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.social-card p {
+  font-size: 0.9rem;
+  color: var(--gray-medium);
+}
+
+.social-card.instagram i {
+  color: #e4405f; /* Instagram brand color */
+}
+
+.social-card.whatsapp i {
+  color: #25d366; /* WhatsApp brand color */
+}
+
+.social-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  .social-contact {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
 }
