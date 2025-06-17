@@ -284,6 +284,8 @@
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: inherit;
 }
 
 .service-card::before {
@@ -354,6 +356,7 @@
   margin-bottom: 1rem;
   position: relative;
   z-index: 2;
+  text-decoration: none;
 }
 
 .service-content h3::after {

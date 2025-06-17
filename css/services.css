@@ -97,42 +97,45 @@
 
 /* Benefits List */
 .benefits-list {
-  list-style: none;
-  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
   margin: 2rem 0;
+  padding: 0;
 }
 
 .benefits-list li {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  color: var(--gray-medium);
-  transition: var(--transition-fast);
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.benefits-list li.fade-in {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.benefits-list li:last-child {
-  border-bottom: none;
+  gap: 0.75rem;
+  padding: 1.25rem 1rem;
+  background: #fff6f6;
+  border: 1.5px solid var(--primary);
+  border-radius: 10px;
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  box-sizing: border-box;
+  margin: 0;
+  transition: box-shadow 0.2s;
 }
 
 .benefits-list li i {
   color: var(--primary);
-  font-size: 1.2rem;
-  width: 20px;
-  text-align: center;
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefits-list li span {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .benefits-list li:hover {
-  color: var(--text-dark);
-  padding-left: 1rem;
+  box-shadow: 0 8px 24px rgba(255, 0, 0, 0.08);
+  border-color: var(--primary-dark);
 }
 
 /* Process Steps */

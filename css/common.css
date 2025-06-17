@@ -294,8 +294,8 @@ p {
 
 /* Footer Styles */
 .footer {
-  background: linear-gradient(135deg, #000000 0%, #1a237e 100%);
-  color: var(--text-light);
+  background: linear-gradient(135deg, #000000 0%, #1a237e 100%) !important;
+  color: var(--text-light) !important;
   padding: 3rem 0 1rem;
 }
 
@@ -303,11 +303,11 @@ p {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-  gap: 1.5rem;
-  align-items: start;
-  grid-auto-rows: min-content;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .footer-section {
@@ -316,23 +316,34 @@ p {
   gap: 1rem;
   width: 100%;
   box-sizing: border-box;
-  height: fit-content;
-}
-
-.footer-section.services {
-  grid-column: span 1;
+  background: transparent !important;
+  color: inherit !important;
 }
 
 .footer-section.about {
-  grid-column: span 1;
+  flex: 2;
+  min-width: 300px;
+  max-width: 400px;
 }
 
 .footer-section.links {
-  grid-column: span 1;
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
+}
+
+.footer-section.services {
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .footer-section.newsletter {
-  grid-column: span 1;
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
 }
 
 /* Ensure all footer sections have proper content */
@@ -345,23 +356,6 @@ p {
   margin-bottom: 0.5rem;
 }
 
-/* Debug styles - remove after fixing */
-.footer-section.about {
-  background: rgba(255, 0, 0, 0.1);
-}
-
-.footer-section.links {
-  background: rgba(0, 255, 0, 0.1);
-}
-
-.footer-section.services {
-  background: rgba(0, 0, 255, 0.1);
-}
-
-.footer-section.newsletter {
-  background: rgba(255, 255, 0, 0.1);
-}
-
 .footer-section.links,
 .footer-section.services {
   gap: 1.5rem;
@@ -372,7 +366,7 @@ p {
   font-weight: 600;
   margin-bottom: 1rem;
   position: relative;
-  color: var(--text-light);
+  color: var(--text-light) !important;
 }
 
 .footer-section h3::after {
@@ -434,7 +428,7 @@ p {
 
 .footer-section.links a,
 .footer-section.services a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8) !important;
   text-decoration: none;
   transition: var(--transition-fast);
 }
@@ -764,9 +758,18 @@ p {
   }
 
   .footer-content {
-    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
     gap: 1.5rem;
-    align-items: start;
+  }
+
+  .footer-section.about {
+    flex: 1 1 45%;
+  }
+
+  .footer-section.links,
+  .footer-section.services,
+  .footer-section.newsletter {
+    flex: 1 1 45%;
   }
 
   .footer-bottom-content {
@@ -781,9 +784,18 @@ p {
 
 @media (max-width: 900px) {
   .footer-content {
-    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
     gap: 1.5rem;
-    align-items: start;
+  }
+
+  .footer-section.about {
+    flex: 1 1 45%;
+  }
+
+  .footer-section.links,
+  .footer-section.services,
+  .footer-section.newsletter {
+    flex: 1 1 45%;
   }
 }
 
@@ -801,9 +813,16 @@ p {
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     text-align: center;
     gap: 2rem;
+  }
+
+  .footer-section.about,
+  .footer-section.links,
+  .footer-section.services,
+  .footer-section.newsletter {
+    flex: 1 1 100%;
   }
 
   .footer-section {
@@ -842,4 +861,123 @@ p {
   .whatsapp-float i {
     font-size: 1.5rem;
   }
+}
+
+.service-content .cta-section {
+  background: linear-gradient(135deg, #000000 0%, #1a237e 100%);
+  color: var(--text-light);
+  padding: 4rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-content .cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/rak-hero.jpg') center/cover;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.service-content .cta-section>* {
+  position: relative;
+  z-index: 2;
+}
+
+.service-content .cta-section h2 {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.service-content .cta-section h2::after {
+  display: none;
+}
+
+.service-content .cta-section p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  background: #ff0000;
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #c40000;
+  transform: translateY(-2px);
+}
+
+.cta-button.primary {
+  background: #ff0000;
+}
+
+@media (max-width: 768px) {
+  .service-content .cta-section {
+    padding: 3rem 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .service-content .cta-section h2 {
+    font-size: 2rem;
+  }
+
+  .service-content .cta-section p {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-content .cta-section h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Remove old CTA styles if present */
+.cta-btn-group,
+.cta-btn,
+.cta-heading,
+.cta-subheading {
+  display: unset !important;
+  background: unset !important;
+  color: unset !important;
+  font-size: unset !important;
+  font-weight: unset !important;
+  margin: unset !important;
+  padding: unset !important;
+  border-radius: unset !important;
+  box-shadow: unset !important;
+  border: unset !important;
+  text-align: unset !important;
 }
