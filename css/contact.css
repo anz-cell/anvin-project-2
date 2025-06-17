@@ -1,0 +1,556 @@
+/* Contact Hero Section */
+.contact-hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  background: linear-gradient(135deg, #000000 0%, #1a237e 100%);
+  overflow: hidden;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/rak-hero.jpg') center/cover;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.contact-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.contact-hero .hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.contact-hero .hero-content p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Contact Content */
+.contact-content {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-section {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.contact-section h2 {
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.contact-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.contact-section p {
+  color: var(--gray-medium);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.contact-info-card {
+  background: var(--background-light);
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.contact-info-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.contact-info-card i {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  transition: var(--transition-fast);
+}
+
+.contact-info-card:hover i {
+  color: var(--secondary);
+  transform: scale(1.1);
+}
+
+.contact-info-card h3 {
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.contact-info-card p {
+  color: var(--gray-medium);
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.contact-info-card a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.contact-info-card a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.contact-form-section h2 {
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.contact-form-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.contact-form-section .contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--background-light);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  text-align: left;
+}
+
+.contact-form-section .contact-form input,
+.contact-form-section .contact-form select,
+.contact-form-section .contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition-fast);
+  background: var(--background-light);
+}
+
+.contact-form-section .contact-form input:focus,
+.contact-form-section .contact-form select:focus,
+.contact-form-section .contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+}
+
+.contact-form-section .contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form-section .contact-form button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.contact-form-section .contact-form button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Office Hours & Social */
+.office-hours {
+  background: var(--background-light);
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-fast);
+}
+
+.office-hours:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.office-hours h3 {
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.office-hours h3::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+}
+
+.hours-list {
+  list-style: none;
+  padding: 0;
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  color: var(--gray-medium);
+}
+
+.hours-list li:last-child {
+  border-bottom: none;
+}
+
+.hours-list li span:first-child {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.hours-list li span:last-child {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Social Contact Cards */
+.social-contact {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1.5rem;
+  background: var(--background-light);
+  border-radius: 15px;
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  min-width: 150px;
+}
+
+.social-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.social-card.instagram {
+  border-top: 4px solid #e4405f;
+}
+
+.social-card.instagram:hover {
+  border-top-color: #c13584;
+}
+
+.social-card.instagram i {
+  color: #e4405f;
+  font-size: 2.5rem;
+  transition: var(--transition-fast);
+}
+
+.social-card.instagram:hover i {
+  color: #c13584;
+  transform: scale(1.1);
+}
+
+.social-card.whatsapp {
+  border-top: 4px solid #25d366;
+}
+
+.social-card.whatsapp:hover {
+  border-top-color: #128c7e;
+}
+
+.social-card.whatsapp i {
+  color: #25d366;
+  font-size: 2.5rem;
+  transition: var(--transition-fast);
+}
+
+.social-card.whatsapp:hover i {
+  color: #128c7e;
+  transform: scale(1.1);
+}
+
+.social-card h4 {
+  color: var(--text-dark);
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.social-card p {
+  color: var(--gray-medium);
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Map Section */
+.map-section {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.map-section h2 {
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.map-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.map-container {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+}
+
+/* Contact CTA Section */
+.contact-content .cta-section {
+  background: linear-gradient(135deg, #000000 0%, #1a237e 100%);
+  color: var(--text-light);
+  padding: 4rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-content .cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/rak-hero.jpg') center/cover;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.contact-content .cta-section>* {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-content .cta-section h2 {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.contact-content .cta-section h2::after {
+  display: none;
+}
+
+.contact-content .cta-section p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design for Contact */
+@media (max-width: 768px) {
+  .contact-hero {
+    height: 50vh;
+  }
+
+  .contact-hero .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .contact-hero .hero-content p {
+    font-size: 1rem;
+  }
+
+  .contact-content {
+    padding: 3rem 1rem;
+  }
+
+  .contact-section {
+    margin-bottom: 3rem;
+  }
+
+  .contact-section h2 {
+    font-size: 2rem;
+  }
+
+  .contact-section p {
+    font-size: 1rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-info-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-info-card i {
+    font-size: 2.5rem;
+  }
+
+  .contact-form-section .contact-form {
+    padding: 2rem;
+  }
+
+  .social-contact {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .office-hours {
+    padding: 2rem 1.5rem;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+
+  .contact-content .cta-section {
+    padding: 3rem 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .contact-content .cta-section h2 {
+    font-size: 2rem;
+  }
+
+  .contact-content .cta-section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .contact-info-card i {
+    font-size: 2rem;
+  }
+
+  .social-card i {
+    font-size: 2rem;
+  }
+
+  .hours-list li {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .contact-content .cta-section h2 {
+    font-size: 1.8rem;
+  }
+}

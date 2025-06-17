@@ -13,7 +13,8 @@
   <link rel="apple-touch-icon" href="favicon.jpg">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
@@ -195,6 +196,161 @@
     </div>
   </section>
 
+  <!-- Quote Calculator -->
+  <section id="quote-calculator" class="quote-calculator" data-aos="fade-up" data-aos-delay="100">
+    <div class="section-header">
+      <h2>Get Instant Quote</h2>
+      <p>Calculate your business setup costs in seconds</p>
+    </div>
+
+    <div class="calculator-container">
+      <div class="calculator-form">
+        <h3>Tell us about your business needs</h3>
+
+        <div class="form-group">
+          <label for="businessType">Business Type</label>
+          <select id="businessType" required>
+            <option value="">Select Business Type</option>
+            <option value="mainland" data-price="8500">UAE Mainland Company</option>
+            <option value="freezone" data-price="6500">Free Zone Company</option>
+            <option value="offshore" data-price="4500">Offshore Company</option>
+            <option value="branch" data-price="12000">Branch Office</option>
+            <option value="representative" data-price="7500">Representative Office</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="visaCount">Number of Visas Required</label>
+          <select id="visaCount" required>
+            <option value="0" data-price="0">No Visas Needed</option>
+            <option value="1" data-price="3500">1 Investor Visa</option>
+            <option value="2" data-price="6000">2 Investor Visas</option>
+            <option value="3" data-price="8500">3 Investor Visas</option>
+            <option value="4" data-price="11000">4 Investor Visas</option>
+            <option value="5" data-price="13500">5 Investor Visas</option>
+            <option value="more" data-price="16000">5+ Investor Visas</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Additional Services</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" value="banking" data-price="2500">
+              <span>Bank Account Opening (AED 2,500)</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="office" data-price="1500">
+              <span>Office Space Assistance (AED 1,500)</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="accounting" data-price="3000">
+              <span>Accounting Setup (AED 3,000)</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="vat" data-price="2000">
+              <span>VAT Registration (AED 2,000)</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="pro" data-price="1800">
+              <span>PRO Services (3 months) (AED 1,800)</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="attestation" data-price="800">
+              <span>Document Attestation (AED 800)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="timeline">Preferred Timeline</label>
+          <select id="timeline" required>
+            <option value="">Select Timeline</option>
+            <option value="express" data-price="2000">Express (7-10 days) +AED 2,000</option>
+            <option value="standard" data-price="0">Standard (15-20 days) - No extra cost</option>
+            <option value="economy" data-price="-500">Economy (25-30 days) -AED 500</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="clientName">Your Name</label>
+          <input type="text" id="clientName" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="clientEmail">Email Address</label>
+          <input type="email" id="clientEmail" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="clientPhone">Phone Number</label>
+          <input type="tel" id="clientPhone" placeholder="+971 XX XXX XXXX" required>
+        </div>
+
+        <div class="calculator-actions">
+          <button type="button" id="calculateBtn" class="calculate-btn">Calculate Quote</button>
+          <button type="button" id="resetBtn" class="reset-btn">Reset Form</button>
+        </div>
+      </div>
+
+      <div class="quote-results" id="quoteResults" style="display: none;">
+        <div class="quote-summary">
+          <h3>Your Instant Quote</h3>
+          <div class="quote-breakdown">
+            <div class="quote-item">
+              <span>Business Setup:</span>
+              <span id="businessCost">AED 0</span>
+            </div>
+            <div class="quote-item">
+              <span>Visa Services:</span>
+              <span id="visaCost">AED 0</span>
+            </div>
+            <div class="quote-item">
+              <span>Additional Services:</span>
+              <span id="additionalCost">AED 0</span>
+            </div>
+            <div class="quote-item">
+              <span>Timeline Adjustment:</span>
+              <span id="timelineCost">AED 0</span>
+            </div>
+            <div class="quote-divider"></div>
+            <div class="quote-total">
+              <span>Total Cost:</span>
+              <span id="totalCost">AED 0</span>
+            </div>
+          </div>
+
+          <div class="quote-details">
+            <p><strong>Estimated Timeline:</strong> <span id="estimatedTime">-</span></p>
+            <p><strong>Includes:</strong> <span id="includedServices">-</span></p>
+          </div>
+
+          <div class="quote-actions">
+            <button type="button" id="downloadPDF" class="pdf-btn">
+              <i class="fas fa-download"></i> Download PDF Quote
+            </button>
+            <button type="button" id="saveQuote" class="save-btn">
+              <i class="fas fa-bookmark"></i> Save Quote
+            </button>
+            <button type="button" id="proceedOrder" class="proceed-btn">
+              <i class="fas fa-shopping-cart"></i> Proceed to Order
+            </button>
+          </div>
+
+          <div class="quote-validity">
+            <p><i class="fas fa-clock"></i> This quote is valid for 30 days</p>
+            <p><i class="fas fa-shield-alt"></i> 100% Money-back guarantee</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="saved-quotes" id="savedQuotes" style="display: none;">
+      <h3>Your Saved Quotes</h3>
+      <div id="quotesContainer"></div>
+    </div>
+  </section>
+
   <!-- Why Choose Us -->
   <section class="why-us" data-aos="fade-right" data-aos-delay="100">
     <h2>Why Choose Us</h2>
@@ -262,7 +418,8 @@
         </div>
         <div class="testimonial-author">
           <div class="author-avatar">
-            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=150&q=80"
+            <img
+              src="data:image/jpeg;base64,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"
               alt="Sarah Johnson">
           </div>
           <div class="author-info">
@@ -418,13 +575,21 @@
           <p>Bbcfze@gmail.com</p>
         </div>
       </div>
-      <form class="contact-form" data-aos="fade-left" data-aos-delay="300">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <input type="tel" placeholder="Your Phone">
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit" class="submit-button">Send Message</button>
+      <form id="contactForm" class="contact-form" data-aos="fade-left" data-aos-delay="300">
+        <input type="text" name="from_name" placeholder="Your Name" required>
+        <input type="email" name="from_email" placeholder="Your Email" required>
+        <input type="tel" name="from_phone" placeholder="Your Phone">
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="submit-button">
+          <span class="button-text">Send Message</span>
+          <span class="button-loading" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i> Sending...
+          </span>
+        </button>
       </form>
+
+      <!-- Success/Error Messages -->
+      <div id="formMessage" class="form-message" style="display: none;"></div>
     </div>
   </section>
 
@@ -500,6 +665,337 @@
     Chat with us on WhatsApp
   </a>
 
+  <!-- PDF Generation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- EmailJS Library for Contact Form -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <!-- Quote Calculator Styles -->
+  <style>
+    .quote-calculator {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      min-height: 100vh;
+    }
+
+    .calculator-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .calculator-form,
+    .quote-results {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .calculator-form h3 {
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .form-group select,
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .form-group select:focus,
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+    }
+
+    .checkbox-group {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .checkbox-item:hover {
+      background: #e9ecef;
+      transform: translateX(5px);
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: auto;
+      margin-right: 12px;
+      transform: scale(1.2);
+    }
+
+    .calculator-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .calculate-btn,
+    .reset-btn {
+      flex: 1;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .calculate-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+    }
+
+    .calculate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
+    }
+
+    .reset-btn {
+      background: #6c757d;
+      color: white;
+    }
+
+    .reset-btn:hover {
+      background: #5a6268;
+      transform: translateY(-2px);
+    }
+
+    .quote-results {
+      position: static;
+      margin-top: 2rem;
+    }
+
+    .quote-summary h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .quote-breakdown {
+      margin-bottom: 2rem;
+    }
+
+    .quote-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .quote-item:last-child {
+      border-bottom: none;
+    }
+
+    .quote-divider {
+      height: 2px;
+      background: var(--primary);
+      margin: 1rem 0;
+    }
+
+    .quote-total {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .quote-details {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .quote-details p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .quote-actions {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .pdf-btn,
+    .save-btn,
+    .proceed-btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .pdf-btn {
+      background: #007bff;
+      color: white;
+    }
+
+    .save-btn {
+      background: #28a745;
+      color: white;
+    }
+
+    .proceed-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .pdf-btn:hover,
+    .save-btn:hover,
+    .proceed-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .quote-validity {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e0e0e0;
+      text-align: center;
+    }
+
+    .quote-validity p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    .saved-quotes {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .saved-quote-item {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--primary);
+    }
+
+    /* Contact Form Message Styles */
+    .form-message {
+      margin-top: 1rem;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1rem;
+      animation: slideIn 0.3s ease;
+    }
+
+    .form-message.success {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      border: 1px solid #28a745;
+    }
+
+    .form-message.error {
+      background: linear-gradient(135deg, #dc3545, #e74c3c);
+      color: white;
+      border: 1px solid #dc3545;
+    }
+
+    .form-message.info {
+      background: linear-gradient(135deg, #17a2b8, #20c997);
+      color: white;
+      border: 1px solid #17a2b8;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .submit-button {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .calculator-container {
+        max-width: 100%;
+        padding: 0 1rem;
+      }
+
+      .calculator-form,
+      .quote-results {
+        max-width: 100%;
+      }
+
+      .calculator-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+
   <!-- Scripts -->
   <script src="index.js"></script>
   <script src="animations.js"></script>
@@ -511,6 +1007,559 @@
       offset: 120,
       once: false
     });
+  </script>
+
+  <!-- Quote Calculator JavaScript -->
+  <script>
+    // Quote Calculator Functionality
+    class QuoteCalculator {
+      constructor() {
+        this.currentQuote = null;
+        this.init();
+        this.loadSavedQuotes();
+      }
+
+      init() {
+        // Event listeners
+        document.getElementById('calculateBtn').addEventListener('click', () => this.calculateQuote());
+        document.getElementById('resetBtn').addEventListener('click', () => this.resetForm());
+        document.getElementById('downloadPDF').addEventListener('click', () => this.downloadPDF());
+        document.getElementById('saveQuote').addEventListener('click', () => this.saveQuote());
+        document.getElementById('proceedOrder').addEventListener('click', () => this.proceedToOrder());
+
+        // Real-time calculation on form changes
+        const formElements = document.querySelectorAll('#businessType, #visaCount, #timeline, input[type="checkbox"]');
+        formElements.forEach(element => {
+          element.addEventListener('change', () => {
+            if (this.isFormValid()) {
+              this.calculateQuote();
+            }
+          });
+        });
+      }
+
+      isFormValid() {
+        const businessType = document.getElementById('businessType').value;
+        const visaCount = document.getElementById('visaCount').value;
+        const timeline = document.getElementById('timeline').value;
+
+        return businessType && visaCount !== '' && timeline;
+      }
+
+      calculateQuote() {
+        if (!this.isFormValid()) {
+          alert('Please fill in all required fields to calculate your quote.');
+          return;
+        }
+
+        // Get form values
+        const businessType = document.getElementById('businessType');
+        const visaCount = document.getElementById('visaCount');
+        const timeline = document.getElementById('timeline');
+        const additionalServices = document.querySelectorAll('input[type="checkbox"]:checked');
+
+        // Calculate costs
+        const businessCost = parseInt(businessType.selectedOptions[0].dataset.price) || 0;
+        const visaCost = parseInt(visaCount.selectedOptions[0].dataset.price) || 0;
+        const timelineCost = parseInt(timeline.selectedOptions[0].dataset.price) || 0;
+
+        let additionalCost = 0;
+        let additionalServicesList = [];
+        additionalServices.forEach(service => {
+          additionalCost += parseInt(service.dataset.price) || 0;
+          additionalServicesList.push(service.nextElementSibling.textContent.split('(')[0].trim());
+        });
+
+        const totalCost = businessCost + visaCost + additionalCost + timelineCost;
+
+        // Update display
+        document.getElementById('businessCost').textContent = `AED ${businessCost.toLocaleString()}`;
+        document.getElementById('visaCost').textContent = `AED ${visaCost.toLocaleString()}`;
+        document.getElementById('additionalCost').textContent = `AED ${additionalCost.toLocaleString()}`;
+        document.getElementById('timelineCost').textContent = timelineCost >= 0 ? `+AED ${timelineCost.toLocaleString()}` : `AED ${timelineCost.toLocaleString()}`;
+        document.getElementById('totalCost').textContent = `AED ${totalCost.toLocaleString()}`;
+
+        // Set timeline and services
+        document.getElementById('estimatedTime').textContent = timeline.selectedOptions[0].textContent.split('(')[1].split(')')[0];
+        document.getElementById('includedServices').textContent = additionalServicesList.length > 0 ? additionalServicesList.join(', ') : 'Business setup package only';
+
+        // Store current quote
+        this.currentQuote = {
+          businessType: businessType.selectedOptions[0].textContent,
+          visaCount: visaCount.selectedOptions[0].textContent,
+          timeline: timeline.selectedOptions[0].textContent,
+          additionalServices: additionalServicesList,
+          costs: {
+            business: businessCost,
+            visa: visaCost,
+            additional: additionalCost,
+            timeline: timelineCost,
+            total: totalCost
+          },
+          clientInfo: {
+            name: document.getElementById('clientName').value,
+            email: document.getElementById('clientEmail').value,
+            phone: document.getElementById('clientPhone').value
+          },
+          date: new Date().toLocaleDateString(),
+          quoteId: 'QT' + Date.now()
+        };
+
+        // Show results
+        document.getElementById('quoteResults').style.display = 'block';
+        document.getElementById('quoteResults').scrollIntoView({ behavior: 'smooth' });
+      }
+
+      resetForm() {
+        document.querySelector('.calculator-form').reset();
+        document.getElementById('quoteResults').style.display = 'none';
+        this.currentQuote = null;
+      }
+
+      downloadPDF() {
+        if (!this.currentQuote) return;
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Header
+        doc.setFontSize(20);
+        doc.setTextColor(255, 0, 0);
+        doc.text('Business Bay Consultancy FZE', 20, 30);
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.text('Your Trusted Partner for Business Setup in UAE Since 2012', 20, 40);
+
+        // Quote Details
+        doc.setFontSize(16);
+        doc.setTextColor(255, 0, 0);
+        doc.text('QUOTE DETAILS', 20, 60);
+
+        doc.setFontSize(11);
+        doc.setTextColor(0, 0, 0);
+        let yPos = 75;
+
+        doc.text(`Quote ID: ${this.currentQuote.quoteId}`, 20, yPos);
+        doc.text(`Date: ${this.currentQuote.date}`, 120, yPos);
+        yPos += 15;
+
+        // Client Information
+        doc.setFontSize(14);
+        doc.setTextColor(255, 0, 0);
+        doc.text('CLIENT INFORMATION', 20, yPos);
+        yPos += 10;
+
+        doc.setFontSize(11);
+        doc.setTextColor(0, 0, 0);
+        doc.text(`Name: ${this.currentQuote.clientInfo.name}`, 20, yPos);
+        yPos += 8;
+        doc.text(`Email: ${this.currentQuote.clientInfo.email}`, 20, yPos);
+        yPos += 8;
+        doc.text(`Phone: ${this.currentQuote.clientInfo.phone}`, 20, yPos);
+        yPos += 20;
+
+        // Service Details
+        doc.setFontSize(14);
+        doc.setTextColor(255, 0, 0);
+        doc.text('SERVICE DETAILS', 20, yPos);
+        yPos += 10;
+
+        doc.setFontSize(11);
+        doc.setTextColor(0, 0, 0);
+        doc.text(`Business Type: ${this.currentQuote.businessType}`, 20, yPos);
+        yPos += 8;
+        doc.text(`Visa Requirements: ${this.currentQuote.visaCount}`, 20, yPos);
+        yPos += 8;
+        doc.text(`Timeline: ${this.currentQuote.timeline}`, 20, yPos);
+        yPos += 8;
+        if (this.currentQuote.additionalServices.length > 0) {
+          doc.text(`Additional Services: ${this.currentQuote.additionalServices.join(', ')}`, 20, yPos);
+          yPos += 8;
+        }
+        yPos += 10;
+
+        // Cost Breakdown
+        doc.setFontSize(14);
+        doc.setTextColor(255, 0, 0);
+        doc.text('COST BREAKDOWN', 20, yPos);
+        yPos += 10;
+
+        doc.setFontSize(11);
+        doc.setTextColor(0, 0, 0);
+        doc.text(`Business Setup: AED ${this.currentQuote.costs.business.toLocaleString()}`, 20, yPos);
+        yPos += 8;
+        doc.text(`Visa Services: AED ${this.currentQuote.costs.visa.toLocaleString()}`, 20, yPos);
+        yPos += 8;
+        doc.text(`Additional Services: AED ${this.currentQuote.costs.additional.toLocaleString()}`, 20, yPos);
+        yPos += 8;
+        doc.text(`Timeline Adjustment: AED ${this.currentQuote.costs.timeline.toLocaleString()}`, 20, yPos);
+        yPos += 15;
+
+        // Total
+        doc.setFontSize(16);
+        doc.setTextColor(255, 0, 0);
+        doc.text(`TOTAL: AED ${this.currentQuote.costs.total.toLocaleString()}`, 20, yPos);
+        yPos += 20;
+
+        // Terms
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        doc.text('• This quote is valid for 30 days from the date of issue', 20, yPos);
+        yPos += 6;
+        doc.text('• 100% Money-back guarantee on our services', 20, yPos);
+        yPos += 6;
+        doc.text('• All prices are in UAE Dirhams (AED)', 20, yPos);
+        yPos += 15;
+
+        // Contact Information
+        doc.setFontSize(12);
+        doc.setTextColor(255, 0, 0);
+        doc.text('CONTACT US', 20, yPos);
+        yPos += 8;
+        doc.setFontSize(10);
+        doc.setTextColor(0, 0, 0);
+        doc.text('Phone: +971 55 262 1001 | Email: Info@bbcfze.com', 20, yPos);
+        yPos += 6;
+        doc.text('WhatsApp: https://wa.me/971552621001', 20, yPos);
+        yPos += 6;
+        doc.text('Instagram: @businessbayzone', 20, yPos);
+
+        // Save PDF
+        doc.save(`Business-Setup-Quote-${this.currentQuote.quoteId}.pdf`);
+      }
+
+      saveQuote() {
+        if (!this.currentQuote) return;
+
+        // Save to localStorage
+        let savedQuotes = JSON.parse(localStorage.getItem('businessBayQuotes') || '[]');
+        savedQuotes.push(this.currentQuote);
+        localStorage.setItem('businessBayQuotes', JSON.stringify(savedQuotes));
+
+        alert('Quote saved successfully! You can find it in your saved quotes section.');
+        this.loadSavedQuotes();
+      }
+
+      loadSavedQuotes() {
+        const savedQuotes = JSON.parse(localStorage.getItem('businessBayQuotes') || '[]');
+        if (savedQuotes.length === 0) return;
+
+        const quotesContainer = document.getElementById('quotesContainer');
+        const savedQuotesSection = document.getElementById('savedQuotes');
+
+        quotesContainer.innerHTML = '';
+
+        savedQuotes.forEach((quote, index) => {
+          const quoteElement = document.createElement('div');
+          quoteElement.className = 'saved-quote-item';
+          quoteElement.innerHTML = `
+            <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 1rem;">
+              <h4 style="margin: 0; color: var(--primary);">Quote #${quote.quoteId}</h4>
+              <span style="color: #6c757d; font-size: 0.9rem;">${quote.date}</span>
+            </div>
+            <p><strong>Business Type:</strong> ${quote.businessType}</p>
+            <p><strong>Total Cost:</strong> AED ${quote.costs.total.toLocaleString()}</p>
+            <p><strong>Client:</strong> ${quote.clientInfo.name} (${quote.clientInfo.email})</p>
+            <div style="margin-top: 1rem;">
+              <button onclick="quoteCalculator.loadQuote(${index})" style="background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 5px; margin-right: 10px; cursor: pointer;">Load Quote</button>
+              <button onclick="quoteCalculator.deleteQuote(${index})" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer;">Delete</button>
+            </div>
+          `;
+          quotesContainer.appendChild(quoteElement);
+        });
+
+        savedQuotesSection.style.display = 'block';
+      }
+
+      loadQuote(index) {
+        const savedQuotes = JSON.parse(localStorage.getItem('businessBayQuotes') || '[]');
+        const quote = savedQuotes[index];
+
+        // Fill form with saved quote data
+        document.getElementById('clientName').value = quote.clientInfo.name;
+        document.getElementById('clientEmail').value = quote.clientInfo.email;
+        document.getElementById('clientPhone').value = quote.clientInfo.phone;
+
+        // Trigger calculation to show results
+        this.currentQuote = quote;
+        this.updateQuoteDisplay();
+        document.getElementById('quoteResults').style.display = 'block';
+        document.getElementById('quote-calculator').scrollIntoView({ behavior: 'smooth' });
+      }
+
+      deleteQuote(index) {
+        if (confirm('Are you sure you want to delete this quote?')) {
+          let savedQuotes = JSON.parse(localStorage.getItem('businessBayQuotes') || '[]');
+          savedQuotes.splice(index, 1);
+          localStorage.setItem('businessBayQuotes', JSON.stringify(savedQuotes));
+          this.loadSavedQuotes();
+        }
+      }
+
+      updateQuoteDisplay() {
+        if (!this.currentQuote) return;
+
+        document.getElementById('businessCost').textContent = `AED ${this.currentQuote.costs.business.toLocaleString()}`;
+        document.getElementById('visaCost').textContent = `AED ${this.currentQuote.costs.visa.toLocaleString()}`;
+        document.getElementById('additionalCost').textContent = `AED ${this.currentQuote.costs.additional.toLocaleString()}`;
+        document.getElementById('timelineCost').textContent = this.currentQuote.costs.timeline >= 0 ? `+AED ${this.currentQuote.costs.timeline.toLocaleString()}` : `AED ${this.currentQuote.costs.timeline.toLocaleString()}`;
+        document.getElementById('totalCost').textContent = `AED ${this.currentQuote.costs.total.toLocaleString()}`;
+        document.getElementById('includedServices').textContent = this.currentQuote.additionalServices.length > 0 ? this.currentQuote.additionalServices.join(', ') : 'Business setup package only';
+      }
+
+      proceedToOrder() {
+        if (!this.currentQuote) return;
+
+        // Create WhatsApp message
+        const message = `Hello! I would like to proceed with my business setup quote:
+        
+📋 Quote ID: ${this.currentQuote.quoteId}
+👤 Name: ${this.currentQuote.clientInfo.name}
+📧 Email: ${this.currentQuote.clientInfo.email}
+📱 Phone: ${this.currentQuote.clientInfo.phone}
+
+🏢 Service Details:
+• Business Type: ${this.currentQuote.businessType}
+• Visa Requirements: ${this.currentQuote.visaCount}
+• Timeline: ${this.currentQuote.timeline}
+${this.currentQuote.additionalServices.length > 0 ? `• Additional Services: ${this.currentQuote.additionalServices.join(', ')}` : ''}
+
+💰 Total Cost: AED ${this.currentQuote.costs.total.toLocaleString()}
+
+Please contact me to proceed with this order.`;
+
+        const whatsappUrl = `https://wa.me/971552621001?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+      }
+    }
+
+    // Initialize calculator when page loads
+    let quoteCalculator;
+    document.addEventListener('DOMContentLoaded', function () {
+      quoteCalculator = new QuoteCalculator();
+    });
+  </script>
+
+  <!-- Contact Form Email Functionality -->
+  <script>
+    // Contact Form Email Service
+    class ContactFormHandler {
+      constructor() {
+        this.init();
+        this.setupEmailJS();
+      }
+
+      setupEmailJS() {
+        // Initialize EmailJS with your public key
+        // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key from Step 4
+        emailjs.init("QoppmkKzLkOCslFgo");
+
+        // INSTRUCTIONS: Replace YOUR_PUBLIC_KEY above with your actual public key
+        // Example: emailjs.init("user_abc123def456ghi789");
+      }
+
+      init() {
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+          contactForm.addEventListener('submit', (e) => this.handleFormSubmit(e));
+        }
+      }
+
+      async handleFormSubmit(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('.submit-button');
+        const buttonText = submitButton.querySelector('.button-text');
+        const buttonLoading = submitButton.querySelector('.button-loading');
+
+        // Show loading state
+        this.showLoadingState(submitButton, buttonText, buttonLoading);
+
+        // Prepare email data
+        const emailData = {
+          from_name: formData.get('from_name'),
+          from_email: formData.get('from_email'),
+          from_phone: formData.get('from_phone') || 'Not provided',
+          message: formData.get('message'),
+          to_email: 'Info@bbcfze.com',
+          reply_to: formData.get('from_email'),
+          subject: `New Contact Form Submission from ${formData.get('from_name')}`,
+          // Add current date and time
+          submission_date: new Date().toLocaleString('en-AE', {
+            timeZone: 'Asia/Dubai',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          })
+        };
+
+        try {
+          // For demo purposes, I'll show a success message
+          // In production, you would use EmailJS service
+          await this.sendEmailDemo(emailData);
+
+          // Show success message
+          this.showMessage('success', ' Thank you! Your message has been sent successfully. We will contact you within 24 hours.');
+
+          // Reset form
+          form.reset();
+
+          // Send auto-reply to customer
+          await this.sendAutoReply(emailData);
+
+        } catch (error) {
+          console.error('Error sending email:', error);
+          this.showMessage('error', ' Sorry, there was an error sending your message. Please try again or contact us directly via WhatsApp.');
+        } finally {
+          // Hide loading state
+          this.hideLoadingState(submitButton, buttonText, buttonLoading);
+        }
+      }
+
+      async sendEmailDemo(emailData) {
+        // Demo function - In production, replace with actual EmailJS call
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            console.log('Email would be sent with data:', emailData);
+            resolve();
+          }, 2000);
+        });
+
+        /* 
+        // Actual EmailJS implementation (uncomment when you set up EmailJS):
+        return emailjs.send(
+          'service_03wyuz3',      // Your Gmail service ID
+          'YOUR_TEMPLATE_ID',     // Replace with Template ID from Step 3 Template 1 (template_xxxxxxx)
+          emailData
+        );
+        
+        // EXAMPLE:
+        // return emailjs.send('service_abc123', 'template_def456', emailData);
+        */
+      }
+
+      async sendAutoReply(emailData) {
+        // Send automatic reply to customer
+        const autoReplyData = {
+          to_email: emailData.from_email,
+          to_name: emailData.from_name,
+          subject: 'Thank you for contacting Business Bay Consultancy',
+          message: `Dear ${emailData.from_name},
+
+Thank you for reaching out to Business Bay Consultancy! We have received your message and appreciate your interest in our services.
+
+Here's a summary of your inquiry:
+• Name: ${emailData.from_name}
+• Email: ${emailData.from_email}
+• Phone: ${emailData.from_phone}
+• Message: ${emailData.message}
+• Submitted: ${emailData.submission_date}
+
+Our team will review your message and get back to you within 24 hours. If you have any urgent questions, please feel free to contact us directly:
+
+📞 Phone: +971 55 262 1001
+📱 WhatsApp: https://wa.me/971552621001
+📧 Email: Info@bbcfze.com
+📸 Instagram: @businessbayzone
+
+Best regards,
+Business Bay Consultancy Team
+Your Trusted Partner for Business Setup in UAE Since 2012`
+        };
+
+        // Demo auto-reply (in production, use EmailJS)
+        console.log('Auto-reply would be sent:', autoReplyData);
+
+        /*
+        // Actual EmailJS auto-reply implementation:
+        return emailjs.send(
+          'service_03wyuz3',           // Same Gmail service ID
+          'YOUR_AUTO_REPLY_TEMPLATE_ID', // Replace with Template ID from Step 3 Template 2 (template_xxxxxxx)
+          autoReplyData
+        );
+        
+        // EXAMPLE:
+        // return emailjs.send('service_abc123', 'template_ghi789', autoReplyData);
+        */
+      }
+
+      showLoadingState(submitButton, buttonText, buttonLoading) {
+        submitButton.disabled = true;
+        buttonText.style.display = 'none';
+        buttonLoading.style.display = 'inline';
+        submitButton.style.opacity = '0.7';
+      }
+
+      hideLoadingState(submitButton, buttonText, buttonLoading) {
+        submitButton.disabled = false;
+        buttonText.style.display = 'inline';
+        buttonLoading.style.display = 'none';
+        submitButton.style.opacity = '1';
+      }
+
+      showMessage(type, text) {
+        const messageDiv = document.getElementById('formMessage');
+        messageDiv.className = `form-message ${type}`;
+        messageDiv.innerHTML = text;
+        messageDiv.style.display = 'block';
+
+        // Auto-hide success messages after 5 seconds
+        if (type === 'success') {
+          setTimeout(() => {
+            messageDiv.style.display = 'none';
+          }, 5000);
+        }
+
+        // Scroll to message
+        messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // Method to integrate with WhatsApp if email fails
+      sendViaWhatsApp(formData) {
+        const message = `Hello! I tried to send a message via your website contact form but encountered an issue.
+
+Here are my details:
+• Name: ${formData.get('from_name')}
+• Email: ${formData.get('from_email')}
+• Phone: ${formData.get('from_phone') || 'Not provided'}
+• Message: ${formData.get('message')}
+
+Please contact me regarding my inquiry. Thank you!`;
+
+        const whatsappUrl = `https://wa.me/971552621001?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+      }
+    }
+
+    // Initialize contact form handler when page loads
+    document.addEventListener('DOMContentLoaded', function () {
+      new ContactFormHandler();
+    });
+
+    // Setup instructions for EmailJS (for your reference)
+    /*
+    TO SET UP EMAIL FUNCTIONALITY:
+    
+    1. Go to https://www.emailjs.com/
+    2. Create a free account
+    3. Create an email service (Gmail, Outlook, etc.)
+    4. Create email templates for:
+       - Contact form notifications
+       - Auto-reply to customers
+    5. Get your:
+       - Public Key
+       - Service ID
+       - Template IDs
+    6. Replace the placeholders in the code above
+    7. Test the functionality
+    
+    The current implementation shows demo messages.
+    Uncomment the EmailJS calls when you have set up the service.
+    */
   </script>
 </body>
 
