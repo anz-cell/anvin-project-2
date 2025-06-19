@@ -6,7 +6,7 @@ import ADCB from './ADCB.png';
 import Emraties_NBD from './Emirates_NBD.jpg';
 import FAB from './FAB.png';
 import VISA from './VISA.png';
-import Emraites_Islamic from './Emraites_Islamic.png'
+import Emraites_Islamic from './EMRAITES_ISLAMIC.png'
 import Commercial_Bank from './commercial_bank_of_dubai.webp'
 import RAKBANK from './RAKBANK.webp'
 export const assets = {
