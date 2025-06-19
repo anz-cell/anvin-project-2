@@ -1,0 +1,49 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.free-consultation {
+  height: 40vh;
+  background-color: #151515;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+}
+
+.free-consultation-header {
+  font-size: 6vh;
+  font-family: Helvetica, sans-serif, Times, serif;
+  color: white;
+  font-weight: 100;
+  text-align: center;
+  padding-top: 10vh;
+}
+
+.free-consultation-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.free-consultation-hilight{
+    color: rgb(218, 213, 155);
+}
+.free-consultation-button {
+  background-color: #151515;
+  color: white;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 50px;
+  width: auto;
+  padding: 2vh;
+  margin-bottom: 10vh;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.free-consultation-button:hover {
+  background-color: white;
+  color: #151515;
+}

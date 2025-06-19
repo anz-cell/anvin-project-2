@@ -1,0 +1,113 @@
+.register-popup-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.register-popup-modal {
+  background: #ffffff;
+  border-radius: 15px;
+  width: 50vw; /* 50% of viewport width */
+  max-width: 900px; /* sensible upper bound */
+  height: 60vh; /* increased height by 20% from original */
+  max-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* image | form */
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+/* Left – image */
+.register-popup-image {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Right – content */
+.register-popup-content {
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.register-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+}
+
+.register-popup-title {
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 28px;
+  font-family: Helvetica, sans-serif;
+}
+
+.register-popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex-grow: 1;
+}
+
+.register-popup-form label {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.register-popup-form input,
+.register-popup-form select {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.register-popup-submit {
+  margin-top: auto; /* stick to bottom */
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  background: #4a4aef;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.register-popup-submit:hover {
+  background: #3333d6;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .register-popup-modal {
+    width: 90vw;
+    grid-template-columns: 1fr; /* stack */
+    max-height: 95vh;
+  }
+
+  .register-popup-image {
+    display: none;
+  }
+
+  .register-popup-content {
+    padding: 30px 24px;
+  }
+}

@@ -1,0 +1,56 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.have-a-business {
+  height: 43.5vh;
+  background-color: rgb(246, 246, 246);
+  border-top: 1px solid grey;
+  color: black;
+  font-family: Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+.have-a-business-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.have-a-business-container h2 {
+  font-size: 5.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.new-business,
+.old-business {
+  padding: 10vh;
+  font-family: Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+.new-business {
+  border-right: 2px solid grey;
+}
+
+.new-business-button,
+.old-business-button {
+  font-size: 1.9vh;
+  background-color: transparent;
+  font-family: Helvetica, sans-serif;
+  padding: 2vh;
+  margin-top: 10vh;
+  border-radius: 5vh;
+  border: 1px solid grey;
+  align-self: flex-end;
+  transition: ease-in-out 0.5s ;
+}
+
+.new-business-button:hover,
+.old-business-button:hover{
+  background-color: white;
+  filter: invert();
+}

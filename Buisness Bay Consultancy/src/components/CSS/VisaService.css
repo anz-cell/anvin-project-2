@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+.visa-service {
+  margin-top: 15vh;
+  margin-bottom: 8vh;
+  height: 100vh;
+  padding: 0 5vw;
+}
+
+.visa-service-headder {
+  font-weight: 100;
+  font-size: 6vh;
+  margin-bottom: 10vh;
+  text-align: left;
+  padding: 5vh 0;
+  border-bottom: 1px solid black;
+}
+
+.visa-service-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  margin-top: 5vh;
+}
+
+.visa-services-cards {
+  display: flex;
+  overflow-x: hidden;
+  padding: 5vh 0vw;
+  scroll-behavior: smooth;
+  gap: 2vw;
+  width: 80vw;
+}
+
+.visa-service-card {
+  width: 25vw;
+  /* Fixed width instead of min-width based on viewport */
+  background-color: #fff;
+  padding: 3vh 2vw;
+  border: 1px solid rgb(63, 61, 61);
+  border-radius: 1vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  box-shadow: 10px 5px 5px rgb(245, 245, 245);
+}
+
+
+.visa-card-title {
+  font-size: 4vh;
+  font-weight: 100;
+  margin-bottom: 2.5vh;
+}
+
+.visa-card-description {
+  font-size: 2.5vh;
+  margin-bottom: 5vh;
+  color: #333;
+}
+
+.visa-card-button {
+  border: 1px solid black;
+  background-color: transparent;
+  font-size: 2.5vh;
+  font-weight: 100;
+  padding: 2vh 3vh;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Center text horizontally */
+  gap: 1vh;
+  font-family: Helvetica, sans-serif;
+  border-radius: 50px;
+  backdrop-filter: blur(300px);
+  color: black;
+  text-align: center;
+  /* Ensures multiline centering */
+}
+
+
+.visa-card-arrow {
+  width: 3vh;
+  height: 3vh;
+}
+
+/* Scroll Buttons styled like visa-card-button */
+.scroll-button {
+  position: relative;
+  background-color: transparent;
+}
+
+.scroll-button.left {
+  order: -1;
+}
+
+.scroll-button.right {
+  order: 2;
+}
+
+/* Add this to your VisaService.css */
+.visa-card-description {
+  font-size: 1.8vh;
+  margin-bottom: 3vh;
+  color: #666;
+  line-height: 1.4;
+  padding-left: 1.5vw;
+}
+
+.visa-card-description li {
+  margin-bottom: 1vh;
+  position: relative;
+  list-style-type: none;
+}
+
+.visa-card-description li:before {
+  content: "•";
+  color: #333;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}

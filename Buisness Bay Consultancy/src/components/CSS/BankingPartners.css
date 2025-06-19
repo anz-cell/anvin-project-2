@@ -1,0 +1,87 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.banking-partners {
+
+        margin-top: 15vh;
+    margin-bottom: 8vh;
+    height: 50vh;
+    padding: 0 5vw;
+}
+
+
+.banking-partners-title h2 {
+        font-weight: 100;
+  font-size: 6vh;
+  margin-bottom: 10vh;
+  text-align: left;
+  padding: 5vh 0vw;
+  border-bottom: 1px solid black;
+}
+
+.banking-partners-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.banking-partners-sliding-images {
+    display: flex;
+    align-items: center;
+    animation: slide 20s linear infinite;
+    width: fit-content;
+}
+
+.banking-partners-sliding-images img {
+    height: 150px;
+    width: auto;
+    margin: 0 60px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.banking-partners-sliding-images:hover {
+    animation-play-state: paused;
+}
+
+.banking-partners-sliding-images img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .banking-partners-title h2 {
+        font-size: 2rem;
+    }
+    
+    .banking-partners-sliding-images img {
+        height: 60px;
+        margin: 0 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banking-partners-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    .banking-partners-sliding-images img {
+        height: 50px;
+        margin: 0 30px;
+    }
+}
