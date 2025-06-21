@@ -1,0 +1,88 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.achievement-dashboard {
+  background-color: white;
+  min-height: 10vh;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.dashboard-header h2 {
+  font-size: clamp(2rem, 6.5vh, 4rem);
+  font-weight: 300;
+  margin-bottom: 4rem;
+  text-align: center;
+  color: black;
+  padding-bottom: 0.5rem;
+}
+
+/* Marquee container */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Marquee track animation */
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  animation: scrollLeft 20s linear infinite;
+}
+
+/* Individual card */
+.dashboard-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 200px;
+  border: 1px solid #bdbdbd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
+  flex-shrink: 0;
+}
+
+.dashboard-card h3 {
+  font-size: 2rem;
+  font-weight: 100;
+  color: #151515;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-card p {
+  font-size: 0.95rem;
+  color: #151515;
+  font-weight: 300;
+}
+
+/* Highlight the + or % */
+.highlight-symbol {
+  color: rgb(199, 186, 48);
+  font-weight: bold;
+}
+
+/* Animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive (optional tweaks) */
+@media screen and (max-width: 768px) {
+  .dashboard-card {
+    min-width: 160px;
+  }
+}

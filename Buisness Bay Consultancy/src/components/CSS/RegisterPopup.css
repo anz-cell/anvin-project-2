@@ -16,12 +16,16 @@
   width: 50vw; /* 50% of viewport width */
   max-width: 900px; /* sensible upper bound */
   height: 60vh; /* increased height by 20% from original */
-  max-height: 90vh;
+  max-height: 65vh;
   display: grid;
   grid-template-columns: 1fr 1fr; /* image | form */
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   position: relative;
+}
+
+.hilight-register{
+  color: rgb(189, 174, 13);
 }
 
 /* Left – image */
@@ -83,8 +87,8 @@
   margin-top: auto; /* stick to bottom */
   padding: 14px;
   border: none;
-  border-radius: 6px;
-  background: #4a4aef;
+  border-radius: 50px;
+  background: black;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
@@ -92,7 +96,7 @@
 }
 
 .register-popup-submit:hover {
-  background: #3333d6;
+  background: black;
 }
 
 /* Mobile adjustments */
@@ -100,8 +104,15 @@
   .register-popup-modal {
     width: 90vw;
     grid-template-columns: 1fr; /* stack */
-    max-height: 95vh;
+    height: 100vh;
   }
+
+  .register-popup-title {
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 28px;
+  font-family: Helvetica, sans-serif;
+}
 
   .register-popup-image {
     display: none;

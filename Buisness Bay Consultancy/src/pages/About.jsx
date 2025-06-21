@@ -3,6 +3,7 @@ import "./CSS/About.css";
 import "./CSS/PromoSection.css";
 import TeamCarousel from "../components/TeamCarousel";
 import ReviewSlider from "../components/ReviewSlider";
+import ImageGallery from "../components/ImageGallery";
 
 const features = [
   {
@@ -54,39 +55,21 @@ const About = () => {
 
   return (
     <>
-      <div className="promo-section">
+      {/* <div className="promo-section">
         <div className="promo-left">
-          <p className="promo-eyebrow">Go green this summer</p>
-          <h1 className="promo-title">Grab your travel MVPs</h1>
+          <p className="promo-eyebrow">Start Smart in the UAE</p>
+          <h1 className="promo-title">Your Partner in Business Success</h1>
           <p className="promo-description">
-            From the beach to the boardroom, summer is packed. Gear up for smooth travels with recycled carry-ons, lightweight apparel and trending accessories.
+            Whether you are launching a startup or expanding an established company, we provide end-to-end solutions—from license registration to long-term growth strategies.
           </p>
-
-          <div className="promo-products">
-            <div className="promo-product">
-              <img
-                src="https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif"
-                alt="Suitcase gif"
-              />
-              <span>SHOP SUITCASES &rarr;</span>
-            </div>
-
-            <div className="promo-product">
-              <img
-                src="https://media.giphy.com/media/26BRI88FDsdrnd9kc/giphy.gif"
-                alt="Backpack gif"
-              />
-              <span>SHOP BAGS &rarr;</span>
-            </div>
-          </div>
         </div>
         <div className="promo-right">
           <img
-            src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?auto=format&fit=crop&w=1000&q=80"
-            alt="Travel golf cart"
+            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1000&q=80"
+            alt="Dubai skyline business district"
           />
         </div>
-      </div>
+      </div> */}
       <div className="about-page">
         <div className="about-left">
           <img
@@ -115,7 +98,8 @@ const About = () => {
         </div>
       </div>
       <ReviewSlider />
-      <TeamCarousel />
+      
+      <ImageGallery/>
     </>
   );
 };

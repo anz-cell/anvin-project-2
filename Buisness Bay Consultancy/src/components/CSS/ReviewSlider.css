@@ -1,6 +1,6 @@
 .review-slider {
   display: flex;
-  background: #f7f4f1;
+  background: white;
   min-height: 70vh;
   margin: 60px 0 0 0;
   padding: 0 40px;
@@ -69,6 +69,7 @@
 .progress-bar {
   width: 80%;
   height: 4px;
+  flex-direction: column;
   background: #dcdcdc;
   position: relative;
   overflow: hidden;
@@ -83,7 +84,7 @@
 @media (max-width: 768px) {
   .review-slider {
     flex-direction: column;
-    margin: 40px 0 0 0;
+    margin: 60px 0 0 0;
     padding: 0 15px;
   }
 
@@ -97,4 +98,14 @@
   .slider-arrow.right {
     right: 10px;
   }
+
+  .review-right{
+    padding: 20vh;
+    width: 100%;
+  }
+  .review-right img {
+  width: 100vh;
+  height: 20%;
+  object-fit: cover;
+}
 }

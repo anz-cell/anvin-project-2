@@ -20,7 +20,8 @@
 
 .hero-container {
   padding: 4vh;
-  border: 2px solid white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
 }
 
 .hero-video-background {
@@ -40,6 +41,7 @@
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 
 .hero-left {
@@ -50,18 +52,15 @@
 }
 
 .hero-button {
-
   all: unset;
-  align-self: left;
+  align-self: flex-start;
   padding: 2vh;
-  font-family: Helvetica, sans-serif;
   border-radius: 10vh;
   background: transparent;
   border: 1px solid white;
   font-weight: 100;
   color: white;
   margin: 5vh 0vw;
-  align-items: left;
   font-size: 2vh;
   backdrop-filter: blur(1000px);
 }
@@ -70,13 +69,9 @@
   color: rgb(194, 192, 104);
 }
 
-
-
-
 .hero-content h1 {
   display: flex;
   text-align: left;
-  align-content: left;
   font-size: 10vh;
   font-weight: 100;
   margin-bottom: 1rem;
@@ -87,4 +82,49 @@
   text-align: left;
   color: #f0f0f0;
   width: 60%;
+}
+
+/* ============================
+   Responsive for Mobile (<=768px)
+============================= */
+@media screen and (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding: 10vh 0;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    text-align: left;
+  }
+
+  .hero-left {
+    align-items: center;
+    padding: 2vh 1vw;
+  }
+
+  .hero-content h1 {
+    font-size: 7.5vh;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .hero-button {
+    align-self: center;
+    font-size: 1rem;
+    margin: 3vh 0;
+  }
+
+  .hero-container {
+    border-width: 1px;
+    padding: 2vh;
+  }
 }

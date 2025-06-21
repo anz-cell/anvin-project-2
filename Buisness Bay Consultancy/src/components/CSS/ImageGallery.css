@@ -1,0 +1,135 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.image-gallery-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.image-gallery {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Top Section */
+.gallery-top {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.main-image {
+  flex: 2;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+/* Side Images */
+.side-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.side-images img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Bottom Grid */
+.bottom-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  width: 100%;
+}
+
+.bottom-images img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Hover Zoom */
+.image-gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .image-gallery {
+    padding: 10px;
+  }
+
+  .gallery-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .side-images {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .side-images img {
+    width: 48%;
+  }
+
+  .bottom-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small phones (≤ 480px) */
+@media (max-width: 480px) {
+  .image-gallery-title {
+    font-size: 20px;
+  }
+
+  .image-gallery {
+    padding: 10px;
+  }
+
+  .main-image img,
+  .side-images img,
+  .bottom-images img {
+    aspect-ratio: 3 / 4;
+    width: 100%;
+  }
+
+  .side-images {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .bottom-images {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}

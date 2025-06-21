@@ -1,0 +1,115 @@
+.service-dashboard {
+  background-color: #ffffff;
+  padding: 5vh 5vw;
+  margin: 0vh 10vw;
+  text-align: center;
+  box-sizing: border-box;
+  padding-bottom: 15vh;
+}
+
+.dashboard-title {
+  font-size: 6.5vh;
+  color: #333;
+  margin: 10vh 0;
+  font-weight: 300;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3vh;
+  justify-items: center;
+  width: 100%;
+}
+
+/* Flip card container */
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 280px;
+  perspective: 1000px; /* 3D effect */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and back faces */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 3vh 2vw;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  border: 1px solid #c7c5c5;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-front {
+  background-color: #ffffff;
+}
+
+.flip-card-back {
+  background-color: WHITE;
+  transform: rotateY(180deg);
+  padding: 2vh 1.5vw;
+}
+
+/* Icon and title styling */
+.service-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 2vh;
+}
+
+.service-title {
+  font-size: clamp(1rem, 2.2vh, 1.3rem);
+  color: #444;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1vh;
+}
+
+/* Description on back */
+.service-description {
+  font-size: 1.3rem;
+  color: #333;
+  line-height: 1.4;
+  padding: 0 1vw;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+
+  .dashboard-title{
+    font-size: 4.7vh;
+  }
+  .service-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 4vw;
+    padding-bottom: 2vh;
+  }
+
+  .flip-card {
+    scroll-snap-align: start;
+    max-width: 100vw;
+    flex-shrink: 0;
+  }
+}

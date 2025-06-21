@@ -1,0 +1,223 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container */
+.cost-calculator {
+  width: 100%;
+  max-width: 50rem;
+  margin: 4vh auto;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 5rem 2.5rem;
+  border: 1px solid rgb(207, 206, 206);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.cost-calculator-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  gap: 1rem;
+}
+
+.cost-calculator-title {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #111827;
+}
+
+.cost-calculator-step {
+  background-color: #111827;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Grid Layout */
+.cost-calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.cost-calculator-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Form Fields */
+.form-label {
+  display: block;
+  color: #111827;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-field {
+  position: relative;
+}
+
+/* Dropdown */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-button {
+  width: 100%;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.85rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #111827;
+  transition: border-color 0.2s ease;
+}
+
+.dropdown-button:hover,
+.number-input:hover {
+  border-color: #111827;
+}
+
+.dropdown-content {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.75rem;
+  color: #6b7280;
+}
+
+.dropdown-text.placeholder {
+  color: #9ca3af;
+}
+
+.dropdown-chevron {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.2s ease;
+  stroke: #6b7280;
+}
+
+.dropdown-chevron.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+  display: none;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-option {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  color: #111827;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-option:hover {
+  background-color: #f3f4f6;
+}
+
+/* Number Input */
+.number-input {
+  width: 100%;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.85rem 1rem 0.85rem 2.8rem;
+  font-size: 0.95rem;
+  color: #111827;
+  transition: border-color 0.2s ease;
+}
+
+.number-input::placeholder {
+  color: #9ca3af;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  color: #9ca3af;
+}
+
+/* Button */
+.calculate-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.calculate-button {
+  background-color: #111827;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.85rem 2.5rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.calculate-button:hover {
+  background-color: #1f2937;
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+  .cost-calculator-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cost-calculator-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .cost-calculator-title {
+    font-size: 3.25rem;
+  }
+}

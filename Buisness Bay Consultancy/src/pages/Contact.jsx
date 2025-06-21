@@ -213,155 +213,161 @@ export default function Contact() {
   const isMobile = window.innerWidth < 900;
 
   return (
-    <div style={{
-      ...responsive.container,
-      flexDirection: isMobile ? "column" : "row",
-      justifyContent: "space-between"
-    }}>
+    <>
       <div style={{
-        ...responsive.left,
-        paddingTop: isMobile ? "8vw" : "2.5vw"
+        ...responsive.container,
+        flexDirection: isMobile ? "column" : "row",
+        justifyContent: "space-between"
       }}>
-        <h2 style={{
-          ...responsive.h1,
-          fontSize: isMobile ? 28 : responsive.h1.fontSize
-        }}>Get in touch</h2>
-        <p style={{
-          ...responsive.p,
-          fontSize: isMobile ? 16 : responsive.p.fontSize
+        <div style={{
+          ...responsive.left,
+          paddingTop: isMobile ? "8vw" : "2.5vw"
         }}>
-          We typically respond in 1-2 business days. Already submitted a chat, form, or email? Please hold tight— we respond to messages in the order that they are received and we'll be with you as soon as possible.
-        </p>
-        <form onSubmit={handleSubmit} noValidate style={responsive.form(isMobile)}>
-          <div>
-            <label style={{
-              ...responsive.label,
-              fontSize: isMobile ? 16 : responsive.label.fontSize
-            }}>Name*</label>
-            <input
-              style={responsive.input(errors.name)}
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-            />
-            {errors.name && (
-              <div style={responsive.error}>
-                <span style={{ marginRight: 4, fontSize: isMobile ? 16 : 18 }}>❗</span>Required field
-              </div>
-            )}
-          </div>
-          <div>
-            <label style={{
-              ...responsive.label,
-              fontSize: isMobile ? 16 : responsive.label.fontSize
-            }}>First Name</label>
-            <input
-              style={responsive.input(false)}
-              name="firstName"
-              value={form.firstName}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label style={{
-              ...responsive.label,
-              fontSize: isMobile ? 16 : responsive.label.fontSize
-            }}>Last Name</label>
-            <input
-              style={responsive.input(false)}
-              name="lastName"
-              value={form.lastName}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label style={{
-              ...responsive.label,
-              fontSize: isMobile ? 16 : responsive.label.fontSize
-            }}>Email*</label>
-            <input
-              style={responsive.input(errors.email)}
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-            />
-            {errors.email && (
-              <div style={responsive.error}>
-                <span style={{ marginRight: 4, fontSize: isMobile ? 16 : 18 }}>❗</span>Required field
-              </div>
-            )}
-          </div>
-          <div>
-            <label style={{
-              ...responsive.label,
-              fontSize: isMobile ? 16 : responsive.label.fontSize
-            }}>Reason For Contact</label>
-            <select
-              name="reason"
-              value={form.reason}
-              onChange={handleChange}
-              style={responsive.select(errors.reason)}
-            >
-              <option value="">Please select</option>
-              <option value="order">Order Inquiry</option>
-              <option value="returns">Returns</option>
-              <option value="repairs">Repairs</option>
-              <option value="other">Other</option>
-            </select>
-            {errors.reason && (
-              <div style={responsive.error}>
-                <span style={{ marginRight: 4, fontSize: isMobile ? 16 : 18 }}>❗</span>Required field
-              </div>
-            )}
-          </div>
-          <button
-            type="submit"
-            style={{
-              ...responsive.button,
-              fontSize: isMobile ? 18 : responsive.button.fontSize
-            }}
-          >
-            SUBMIT
-          </button>
-        </form>
-      </div>
-      <div style={{
-        ...responsive.right,
-        paddingTop: isMobile ? "8vw" : "2.5vw"
-      }}>
-        <h2 style={{
-          ...responsive.h2,
-          fontSize: isMobile ? 24 : responsive.h2.fontSize
-        }}>Top FAQs</h2>
-        <ul style={responsive.faqList}>
-          {faqs.map((faq, idx) => (
-            <li
-              key={idx}
-              style={responsive.faqItem(openFaq === idx)}
-              onClick={() => handleFaqClick(idx)}
-            >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span style={responsive.faqIcon(openFaq === idx)}>+</span>
-                <span style={{ fontSize: isMobile ? 16 : "1.2vw" }}>{faq.question}</span>
-              </div>
-              {openFaq === idx && (
-                <div style={{
-                  ...responsive.faqAnswer,
-                  fontSize: isMobile ? 14 : responsive.faqAnswer.fontSize
-                }}>
-                  {faq.answer}
+          <h2 style={{
+            ...responsive.h1,
+            fontSize: isMobile ? 28 : responsive.h1.fontSize
+          }}>Get in touch</h2>
+          <p style={{
+            ...responsive.p,
+            fontSize: isMobile ? 16 : responsive.p.fontSize
+          }}>
+            We typically respond in 1-2 business days. Already submitted a chat, form, or email? Please hold tight— we respond to messages in the order that they are received and we'll be with you as soon as possible.
+          </p>
+          <form onSubmit={handleSubmit} noValidate style={responsive.form(isMobile)}>
+            <div>
+              <label style={{
+                ...responsive.label,
+                fontSize: isMobile ? 16 : responsive.label.fontSize
+              }}>Name*</label>
+              <input
+                style={responsive.input(errors.name)}
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+              />
+              {errors.name && (
+                <div style={responsive.error}>
+                  <span style={{ marginRight: 4, fontSize: isMobile ? 16 : 18 }}>❗</span>Required field
                 </div>
               )}
-            </li>
-          ))}
-        </ul>
+            </div>
+            <div>
+              <label style={{
+                ...responsive.label,
+                fontSize: isMobile ? 16 : responsive.label.fontSize
+              }}>Last Name</label>
+              <input
+                style={responsive.input(false)}
+                name="lastName"
+                value={form.lastName}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label style={{
+                ...responsive.label,
+                fontSize: isMobile ? 16 : responsive.label.fontSize
+              }}>Email*</label>
+              <input
+                style={responsive.input(errors.email)}
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+              />
+              {errors.email && (
+                <div style={responsive.error}>
+                  <span style={{ marginRight: 4, fontSize: isMobile ? 16 : 18 }}>❗</span>Required field
+                </div>
+              )}
+            </div>
+            <div>
+              <label style={{
+                ...responsive.label,
+                fontSize: isMobile ? 16 : responsive.label.fontSize
+              }}>Reason For Contact</label>
+              <select
+                name="reason"
+                value={form.reason}
+                onChange={handleChange}
+                style={responsive.select(errors.reason)}
+              >
+                <option value="">Please select</option>
+                <option value="order">Order Inquiry</option>
+                <option value="returns">Returns</option>
+                <option value="repairs">Repairs</option>
+                <option value="other">Other</option>
+              </select>
+              {errors.reason && (
+                <div style={responsive.error}>
+                  <span style={{ marginRight: 4, fontSize: isMobile ? 16 : 18 }}>❗</span>Required field
+                </div>
+              )}
+            </div>
+            <button
+              type="submit"
+              style={{
+                ...responsive.button,
+                fontSize: isMobile ? 18 : responsive.button.fontSize
+              }}
+            >
+              SUBMIT
+            </button>
+          </form>
+        </div>
         <div style={{
-          ...responsive.allFaqs,
-          fontSize: isMobile ? 16 : responsive.allFaqs.fontSize
+          ...responsive.right,
+          paddingTop: isMobile ? "8vw" : "2.5vw"
         }}>
-          <a href="#" style={{ textDecoration: "none", color: "#000", fontWeight: 500 }}>ALL FAQS →</a>
+          <h2 style={{
+            ...responsive.h2,
+            fontSize: isMobile ? 24 : responsive.h2.fontSize
+          }}>Top FAQs</h2>
+          <ul style={responsive.faqList}>
+            {faqs.map((faq, idx) => (
+              <li
+                key={idx}
+                style={responsive.faqItem(openFaq === idx)}
+                onClick={() => handleFaqClick(idx)}
+              >
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span style={responsive.faqIcon(openFaq === idx)}>+</span>
+                  <span style={{ fontSize: isMobile ? 16 : "1.2vw" }}>{faq.question}</span>
+                </div>
+                {openFaq === idx && (
+                  <div style={{
+                    ...responsive.faqAnswer,
+                    fontSize: isMobile ? 14 : responsive.faqAnswer.fontSize
+                  }}>
+                    {faq.answer}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+          <div style={{
+            ...responsive.allFaqs,
+            fontSize: isMobile ? 16 : responsive.allFaqs.fontSize
+          }}>
+            <a href="#" style={{ textDecoration: "none", color: "#000", fontWeight: 500 }}>ALL FAQS →</a>
+          </div>
         </div>
       </div>
-    </div>
+      {/* Visit Us Section */}
+      <div style={{ width: '100%', margin: '60px 0 80px', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 20px' }}>
+        <h2 style={{ fontWeight: 500, fontSize: 'clamp(24px, 6vh, 1.6vh)', marginBottom: '1.5vw', textAlign: 'center', }}>Visit Us</h2>
+        <div style={{ width: '100%', maxWidth: '2000px', height: isMobile ? '50vh' : '60vh', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>
+          <iframe
+            title="Business Bay Consultancy Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3586.2171192264974!2d55.778199!3d25.6747366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef60a12e5f110ad%3A0xba58953756553d4e!2sBusiness%20Bay%20Consultancy%20FZE!5e0!3m2!1sen!2sae!4v1716820000!5m2!1sen!2sae"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </>
   );
 }

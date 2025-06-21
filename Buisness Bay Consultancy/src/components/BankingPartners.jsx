@@ -26,6 +26,7 @@ const BankingPartners = () => {
           <img src={assets.VISA} alt="VISA" />
           <img src={assets.RAKBANK} alt="RAKBANK" />
           <img src={assets.Emraites_Islamic} alt="Emirates Islamic" />
+          <img src={assets.Commercial_Bank} alt="Commercial Bank Of Dubai" />
         </div>
       </div>
     </div>

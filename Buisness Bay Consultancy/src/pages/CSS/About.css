@@ -24,7 +24,7 @@
   max-width: none;
   margin: 20px 0 0 0;
   padding: 0 40px;
-  background: #fff;
+  background: white;
   border-radius: 0;
   box-shadow: none;
   overflow: visible;
@@ -60,7 +60,7 @@
 }
 
 .about-box {
-  background: #fff;
+  background: white;
   border: 1px solid #ececec;
   border-radius: 0;
   padding: 20px 16px;
@@ -136,8 +136,8 @@
   }
 
   .about-main-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
+    font-size: 3.5rem;
+    margin: 10vh 0vw;
     text-align: center;
   }
 
@@ -163,7 +163,7 @@
   }
 
   .about-main-title {
-    font-size: 1.5rem;
+    font-size: 3rem;
     margin-bottom: 20px;
   }
 
@@ -184,4 +184,26 @@
     font-size: 12px;
     line-height: 1.4;
   }
+}
+
+
+.promo-section {
+  display: flex;
+  background-color: white;
+  min-height: 80vh;
+  margin: 60px 0 0 0;
+  padding: 0 40px;
+  gap: 80px;
+  align-items: center;
+}
+
+
+.review-slider {
+  display: flex;
+  background-color: white;
+  min-height: 70vh;
+  margin: 60px 0 0 0;
+  padding: 0 40px;
+  width: 100%;
+  box-sizing: border-box;
 }

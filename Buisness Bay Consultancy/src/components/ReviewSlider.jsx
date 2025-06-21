@@ -3,19 +3,19 @@ import './CSS/ReviewSlider.css';
 
 const slides = [
   {
-    quote: '"One of the Best Luggage Brands in the World: 2024 Readers\' Choice Awards"',
-    publication: 'Condé Nast Traveler',
-    image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=987&q=80',
+    quote: '"Top Business Setup Consultancy in the UAE – 2024 Business Excellence Awards"',
+    publication: 'Gulf Business',
+    image: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=987&h=640',
   },
   {
-    quote: '"Gear of the Year 2023 – travel made smarter, lighter and greener."',
-    publication: 'Traveler Magazine',
-    image: 'https://images.unsplash.com/photo-1541857411-0f3363c91800?auto=format&fit=crop&w=987&q=80',
+    quote: '"Best PRO & Government Liaison Service Provider"',
+    publication: 'MENA Startup Reviews',
+    image: 'https://images.pexels.com/photos/889839/pexels-photo-889839.jpeg?auto=compress&cs=tinysrgb&w=987&h=640',
   },
   {
-    quote: '"The suitcase that conquered every airport stress test."',
-    publication: 'Global Travel Awards',
-    image: 'https://images.unsplash.com/photo-1582591561341-d9d59c6d5a3c?auto=format&fit=crop&w=987&q=80',
+    quote: '"Leading Consultant for Free-Zone & Mainland Company Formation"',
+    publication: 'Dubai SME Magazine',
+    image: 'https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=987&h=640',
   },
 ];
 

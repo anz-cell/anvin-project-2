@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import "./CSS/Navbar.css";
 import { assets } from "../assets/assets.js";
 
@@ -46,20 +47,20 @@ const Navbar = () => {
       </div>
 
       <nav className={`navbar ${isScrolled ? "navbar-scrolled" : ""}`}>
-        <a href="/" className="logo">
+        <Link to="/" className="logo" onClick={() => setIsMenuOpen(false)}>
           <img
             src={assets.buisess_logo}
             alt="logo"
             className={`logo-img ${isScrolled ? "scrolled-logo" : ""}`}
           />
-        </a>
+        </Link>
 
         <div className="nav-links">
           {navLinks.map((link, i) => (
-            <a key={i} href={link.path} className="nav-link">
+            <Link key={i} to={link.path} className="nav-link" onClick={() => setIsMenuOpen(false)}>
               {link.name}
               <div className={`underline ${isScrolled ? "scrolled-underline" : ""}`}></div>
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -80,9 +81,9 @@ const Navbar = () => {
           </button>
 
           {navLinks.map((link, i) => (
-            <a key={i} href={link.path} onClick={() => setIsMenuOpen(false)} className="mobile-link">
+            <Link key={i} to={link.path} onClick={() => setIsMenuOpen(false)} className="mobile-link">
               {link.name}
-            </a>
+            </Link>
           ))}
 
           <button className="mobile-login-btn">Login</button>

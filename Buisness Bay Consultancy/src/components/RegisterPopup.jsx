@@ -13,14 +13,14 @@ const RegisterPopup = () => {
   if (!isOpen) return null
 
   return (
-    <div className="register-popup-overlay">
-      <div className="register-popup-modal">
+    <div className="register-popup-overlay" role="presentation">
+      <div className="register-popup-modal" role="dialog" aria-modal="true" aria-labelledby="register-title">
         {/* Left – visual */}
         <div
           className="register-popup-image"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80')",
+              "url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80')",
           }}
         />
 
@@ -34,15 +34,15 @@ const RegisterPopup = () => {
             &times;
           </button>
 
-          <h1 className="register-popup-title">Register Your Hotel</h1>
+          <h1 id="register-title" className="register-popup-title">Get a Call Back in less than <span className='hilight-register'>1 Minute</span></h1> 
           <form className="register-popup-form" onSubmit={(e) => e.preventDefault()}>
             <label>
-              Hotel Name
-              <input type="text" placeholder="Type Here" required />
+              Business Name
+              <input type="text" placeholder="Type Here" required autoFocus />
             </label>
 
             <label>
-              Contact – Phone
+              Contact Number
               <input type="tel" placeholder="Type Here" required />
             </label>
 
@@ -55,7 +55,7 @@ const RegisterPopup = () => {
               City
               <select required defaultValue="">
                 <option value="" disabled>
-                  Select City
+                  Choose Emirate
                 </option>
                 <option value="dubai">Dubai</option>
                 <option value="abu-dhabi">Abu Dhabi</option>
@@ -65,7 +65,7 @@ const RegisterPopup = () => {
             </label>
 
             <button type="submit" className="register-popup-submit">
-              Register
+              Submit
             </button>
           </form>
         </div>

@@ -72,9 +72,7 @@ const VisaService = () => {
       <h1 className="visa-service-headder">Company Set-Up Services</h1>
 
       <div className="visa-service-slider">
-        <button className="visa-card-button scroll-button left" onClick={() => scroll('left')}>
-          <span>←</span>
-        </button>
+        <button className="scroll-button left" onClick={() => scroll('left')}>←</button>
 
         <div className="visa-services-cards" ref={scrollRef}>
           {visaCards.map((card, index) => (
@@ -86,15 +84,14 @@ const VisaService = () => {
                 ))}
               </ul>
               <button className="visa-card-button">
-                Know More <img src={assets.arrow_up} alt="arrow-icon" className="visa-card-arrow" />
+                Know More
+                <img src={assets.arrow_up} alt="arrow-icon" className="visa-card-arrow" />
               </button>
             </div>
           ))}
         </div>
 
-        <button className="visa-card-button scroll-button right" onClick={() => scroll('right')}>
-          <span>→</span>
-        </button>
+        <button className="scroll-button right" onClick={() => scroll('right')}>→</button>
       </div>
     </div>
   );
